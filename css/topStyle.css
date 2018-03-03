@@ -1,0 +1,145 @@
+#tops {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+#topsTd {
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.mostRecents {
+    display: table-block;
+    border-width: thin;
+    border-left-width: 0.5em;
+    border-style: solid;
+    border-color: rgba(0, 0, 255, 0.5);
+    background: rgba(0, 0, 255, 0.25);
+    width: 100%;
+    height: 34em;
+    max-width: 500px;
+    overflow-y: auto;
+}
+
+#tMostRecents tr:nth-child(2) {
+    border-width: 0px;
+    border-top-width: 0px;
+    border-style: solid;
+    border-color:rgba(134, 14, 182, 0.582);
+}
+
+#tMostRecents tr {
+    border-width: 0px;
+    border-top-width: thin;
+    border-style: solid;
+    border-color:rgba(134, 14, 182, 0.582);
+}
+
+#tMostRecents td {
+    text-align: justify;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-right: 0.5em;
+}
+
+#tMostRecents {
+    width: 100%;
+    padding: 0%;
+    border-collapse: collapse;
+    max-width: 100%;
+}
+
+#recentsDescription {
+    font-family: 'Lobster', cursive;
+    font-size: 3.2em;
+    text-align: center;
+    color: whitesmoke;
+    text-shadow: 3px 3px black;
+}
+
+#recentsIcon {
+    width: 75px;
+    height: 75px;
+    margin-right: 1em;
+    margin-left: 1em;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+
+	background-color: rgba(0,0,0,0);
+}
+
+.scrollbar::-webkit-scrollbar {
+	width: 0.3em;
+	background-color: rgba(0,0,0,0);
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    background-color:rgba(0, 255, 255, 0.75);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(0,120,255);
+    height: 20px;
+}
+
+img {
+    border-radius: 50%;
+    padding: 5px;
+    border-width: 0em;
+    border-bottom-width: 0.2em;
+    border-style: solid;
+    border-color: white;
+    box-shadow: 0px 1px black;
+}
+
+.recentsText {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1em;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
+#topMenu {
+    width: 100vw;
+    position: relative;
+    margin-left: -8px;
+    height: 50px;
+    margin-top: -8px;
+    background: green;
+    background: linear-gradient(to bottom, green,rgba(0, 255, 0, 0));
+}
+
+#siteName {
+    position: absolute;
+    margin-top: -42px;
+    left:12.5%;
+}
+
+#siteNameText {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2.2em;
+    color: white;
+    text-shadow: 3px 3px black;
+}
+
+#navMenu {
+    right: 5%;
+    position: absolute;
+}
+
+#navMenu button {
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    text-shadow: 1px 1px black;
+    background: linear-gradient(to bottom, green,rgba(0, 255, 0, 0));
+    border-width: 0px;
+    border-style: solid;
+    border-top-width: 4px;
+    border-color: limegreen;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
