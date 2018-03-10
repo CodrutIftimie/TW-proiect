@@ -1,0 +1,236 @@
+#top {
+    padding-bottom:3em;
+    z-index: 100;
+}
+#topMenu {
+    width: 100vw;
+    position: fixed;
+    margin-left: -0.5em;
+    height: 3.2em;
+    margin-top: -0.5em;
+    background: green;
+    background: linear-gradient(to bottom, green,rgba(0, 255, 0, 0));
+    z-index: 100;
+}
+
+#siteName {
+    position: fixed;
+    margin-top: -42px;
+    left:12.5%;
+    z-index: 100;
+}
+
+#siteNameText {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2.2em;
+    color: white;
+    text-shadow: 3px 3px black;
+    padding-left: 1.3em;
+    z-index: 100;
+}
+
+#navMenu {
+    right: 5%;
+    position: fixed;
+    margin-left: 13em;
+    z-index: 100;
+}
+
+#navMenu button {
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    text-shadow: 1px 1px black;
+    background: linear-gradient(to bottom, green,rgba(0, 255, 0, 0));
+    border-width: 0px;
+    border-style: solid;
+    border-top-width: 4px;
+    border-color: limegreen;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    z-index: 100;
+}
+
+#logo {
+    height: 2.3em;
+    max-width: 2em;
+    position: absolute;
+    margin-top: 2.85em;
+    z-index: 100;
+}
+
+body {
+    background-attachment: fixed;
+}
+
+#body {
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+    width: 100%;
+    text-align: center;
+    align-content: center;
+}
+
+#filters {
+    vertical-align: top;
+    display: inline-block;
+    width: 15%;
+    min-height: 40vh;
+    border-color: rgba(90, 90, 90, 1);
+    border-width: 0em 0.2em 0em 0.2em;
+    border-style: solid;
+    margin-left: 0em;
+    text-align: left;
+}
+
+#filters h6{
+    font-family: 'Fugaz One', cursive;
+    font-size: 2em;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(90, 90, 90, 0.85);
+    border-bottom-width: thin;
+    margin-top: 0em;
+    margin-bottom: 0em;
+    padding: 0.2em;
+    background-color: whitesmoke;
+    text-align: center;
+}
+#filters input {
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+#filters h5 {
+    font-size:1.8em;
+    margin: 0em;
+    padding: 0.2em;
+    text-align: center;
+}
+
+#filters div {
+    background-color: whitesmoke;
+    margin-top: 0.1em;
+    padding-bottom: 1em;
+    padding-top: 0.2em;
+    margin-bottom: 0.1em;
+}
+
+.price {
+    text-align: center;
+}
+
+.price input {
+    max-width: 4em;
+    text-align: center;
+}
+
+#items {
+    display: inline-block;
+    width: 60%;
+    min-height: 90vh;
+    background-color: whitesmoke;
+}
+
+#items > ul
+{
+    list-style-type: none;
+    margin: 0.2em 0em 0.2em 0em;
+    padding: 0.2em 0em 0.2em 0em;
+}
+
+#items > ul > li {
+    position: relative;
+    vertical-align: top;
+    display: inline-block;
+    width: 15em;
+    height: 25em;
+    margin: 0.2em 0.2em 0.2em 0.2em;
+    background-color: white;
+    border-color: rgba(90, 90, 90, 0.5);
+    border-style: solid;
+    border-width: thin;
+    border-radius: 1%;
+    padding-left:0.4em;
+    padding-right: 0.4em;
+}
+
+#items > ul > li img {
+    width: 10em;
+    height: auto;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(90, 90, 90, 0.85);
+    border-bottom-width: thin;
+}
+
+#items > ul > li h1 {
+    font-size: 1em;
+    margin-top: 0.1em;
+    margin-bottom: 0em;
+}
+
+#items > ul > li h2 {
+    position: absolute;
+    font-size: 0.9em;
+    margin-bottom: 0em;
+    color: grey;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    bottom: 5.2em;
+}
+
+#items > ul > li h3 {
+    position: absolute;
+    font-size: 1.7em;
+    color: green;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    bottom: 0.5em;
+}
+
+#items > ul > li button {
+    position: absolute;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    text-shadow: 1px 1px black;
+    background: blue;
+    border-width: 1px;
+    width: 10em;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2em;
+    margin-top: 0.1em;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    bottom: 0.5em;
+}
+
+.description {
+    position: absolute;
+    list-style-type: disc;
+    font-size: 0.9em;
+    left: 4em;
+    bottom: 7.5em;
+    text-align: left;
+}
+#footer {
+    position: relative;
+    left:-0.5em;
+    bottom: -1em;
+    width:99.1vw;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.85);
+    min-height: 5vh;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
