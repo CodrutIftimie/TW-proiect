@@ -2,6 +2,7 @@
     padding-bottom:3em;
     z-index: 100;
 }
+
 #topMenu {
     width: 100vw;
     position: fixed;
@@ -10,6 +11,12 @@
     margin-top: -0.5em;
     background: green;
     background: linear-gradient(to bottom, green,rgba(0, 255, 0, 0));
+    z-index: 100;
+
+}
+
+#top a:link {
+    text-decoration: none;
     z-index: 100;
 }
 
@@ -29,11 +36,45 @@
     z-index: 100;
 }
 
+#search input {
+    position:fixed;
+    display:block;
+    width:33vw;
+    height:2.5em;
+    margin: 0em;
+    padding: 0em 1em;
+    border: none;
+    left: 33vw;
+    top: 0.25em;
+    z-index: 100;
+    font-size: 1em;
+    background: rgba(255, 255, 255, 0.75);
+    -webkit-transition: .35s all ease;
+    transition: .35s all ease;
+}
+
+#search input:focus {
+    background:white;
+    padding: 0em 1.2em;
+    margin-left: -0.2em;
+}
+
+
 #navMenu {
     right: 5%;
     position: fixed;
     margin-left: 13em;
     z-index: 100;
+}
+
+#navMenu a.active button {
+    border-color: rgb(115, 255, 0);
+}
+
+#navMenu button:hover {
+    border-color: yellow;
+    background: rgba(0, 128, 0, 0.712);
+    padding-bottom:1.5em;
 }
 
 #navMenu button {
@@ -45,12 +86,15 @@
     border-style: solid;
     border-top-width: 4px;
     border-color: limegreen;
-    padding: 15px 32px;
+    padding: 1em 1.5em;
+    margin-top: -0.5em;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     z-index: 100;
+    -webkit-transition: .5s all ease;
+    transition: .5s all ease;
 }
 
 #logo {
@@ -88,14 +132,14 @@ body {
 
 #filters h6{
     font-family: 'Fugaz One', cursive;
-    font-size: 2em;
+    font-size: 2.5em;
     border-bottom-style: solid;
     border-bottom-color: rgba(90, 90, 90, 0.85);
     border-bottom-width: thin;
     margin-top: 0em;
     margin-bottom: 0em;
     padding: 0.2em;
-    background-color: whitesmoke;
+    background-color: rgba(245, 245, 245, 0.8);
     text-align: center;
 }
 #filters input {
@@ -104,18 +148,96 @@ body {
 }
 
 #filters h5 {
-    font-size:1.8em;
+    font-family: 'Fugaz One', cursive;
+    font-size:2.2em;
     margin: 0em;
     padding: 0.2em;
     text-align: center;
 }
 
 #filters div {
-    background-color: whitesmoke;
+    position: relative;
+    background-color: rgba(245, 245, 245, 0.8);
     margin-top: 0.1em;
     padding-bottom: 1em;
     padding-top: 0.2em;
     margin-bottom: 0.1em;
+    z-index: 0;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] {
+    background-color: rgb(28, 139, 0);
+    margin: 0em;
+    color: white;
+    padding: 0.25em 1em 0.25em 1em;
+    border: 0em;
+    border-radius: 0.5em;
+    -webkit-transition: .35s all ease;
+    transition: .35s all ease;
+    transition-timing-function: ease;
+}
+
+input[type=number]:hover {
+    padding: 0.3em 1.1em 0.3em 1.1em;
+    margin: -0.1em;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+label {
+    position: relative;
+    display: inline-block;
+    margin-right: 0.8em;
+    margin-left: 2em;
+    margin-bottom: 0.5em;
+    padding-left: 2em;
+    padding-right: 0.8em;
+    line-height: 2.3em;
+    cursor: pointer;
+    font-family: 'Cabin', sans-serif;
+}
+
+label:hover {
+    padding-left: 3em;
+}
+label::before {
+    content: " ";
+    position: absolute;
+    top: 0.4em;
+    left: 0;
+    display: block;
+    width: 1em;
+    height: 1em;
+    border: 2px solid rgb(28, 139, 0);
+    border-radius: 5px;
+    color:white;
+    z-index: -1;
+}
+  /* Checked */
+input[type="checkbox"]:checked + label {
+    padding-left: 1em;
+    color: #fff;
+    
+}
+
+input[type="checkbox"]:checked + label::before {
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(28, 139, 0);
+}
+  /* Transition */
+label, label::before {
+    -webkit-transition: .35s all ease;
+    transition: .35s all ease;
 }
 
 .price {
@@ -131,7 +253,7 @@ body {
     display: inline-block;
     width: 60%;
     min-height: 90vh;
-    background-color: whitesmoke;
+    background-color: rgba(245, 245, 245, 0.8);
 }
 
 #items > ul
@@ -155,8 +277,21 @@ body {
     border-radius: 1%;
     padding-left:0.4em;
     padding-right: 0.4em;
+    -webkit-transition: .35s all ease;
+    transition: .35s all ease;
+    transition-timing-function: ease;
+    cursor: pointer;
 }
 
+#items > ul > li:hover {
+    width: 16em;
+    height: 25.5em;
+    margin-left: -0.3em;
+    margin-right: -0.3em;
+    margin-top: -0.15em;
+    margin-bottom: -0.15em;
+    border-radius: 5%;
+}
 #items > ul > li img {
     width: 10em;
     height: auto;
@@ -201,7 +336,7 @@ body {
     color: white;
     font-family: 'Raleway', sans-serif;
     text-shadow: 1px 1px black;
-    background: blue;
+    background: rgb(28, 139, 0);
     border-width: 1px;
     width: 10em;
     text-align: center;
@@ -213,6 +348,14 @@ body {
     left: 0;
     right: 0;
     bottom: 0.5em;
+    -webkit-transition: .35s all ease;
+    transition: .35s all ease;
+    transition-timing-function: ease;
+    cursor: pointer;
+}
+
+#items > ul > li button:hover {
+    width:12em;
 }
 
 .description {

@@ -8,79 +8,99 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:500" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fugaz+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin|Pacifico" rel="stylesheet">
 </head>
 
-<body background="images/bg.jpg">
+<body background="images/bg.png">
     <div id="top">
-        <a href="index.html">
-            <div id="topMenu">
-                <div id="siteName">
+        <div id="topMenu">
+            <div id="siteName">
+                <a href="index.html">
                     <img id="logo" src="images/logo.png">
                     <p id="siteNameText">
                         CanF
                     </p>
-                </div>
-                <div id="navMenu">
-                    <a href="index.html">
-                        <button type="button">Home</button>
-                    </a>
-                    <a href="list.html">
-                        <button type="button">Products List</button>
-                    </a>
-                    <a href="#">
-                        <button type="button">Contact</button>
-                    </a>
-                </div>
+                </a>
             </div>
-        </a>
+        </div>
+        <div id="search">
+            <input type="text" placeholder="Search for...">
+        </div>
+        <div id="navMenu">
+            <a href="index.html">
+                <button type="button">Home</button>
+            </a>
+            <a class="active" href="list.html">
+                <button type="button">Products List</button>
+            </a>
+            <a href="#">
+                <button type="button">Contact</button>
+            </a>
+        </div>
     </div>
     <div id="body">
         <div id="filters">
             <h6>Filter by...</h6>
             <div class="price">
                 <h5>Price</h5>
-                <input type="number" min="0" max="9999"> -
-                <input type="number" min="0" max="9999">
+                <input type="number" min="0" max="9999" value="min"> -
+                <input type="number" min="0" max="9999" value="max">
             </div>
             <div class="ingredients">
                 <h5>Ingredients</h5>
-                <input type="checkbox" value="Tomatoes" name="SA">Tomatoes
+                <input type="checkbox" value="Tomatoes" id="tomatoes">
+                <label for="tomatoes">Tomatoes</label>
                 <br>
-                <input type="checkbox" value="Vegetables" name="SA">Vegetables
+                <input type="checkbox" value="Vegetables" id="vegetables">
+                <label for="vegetables">Vegetables</label>
                 <br>
-                <input type="checkbox" value="Meat" name="SA">Meat
+                <input type="checkbox" value="Meat" id="meat">
+                <label for="meat">Meat</label>
                 <br>
-                <input type="checkbox" value="Fish" name="SA">Fish
+                <input type="checkbox" value="Fish" id="fish">
+                <label for="fish">Fish</label>
                 <br>
-                <input type="checkbox" value="Cheese" name="SA">Cheese
+                <input type="checkbox" value="Cheese" id="cheese">
+                <label for="cheese">Cheese</label>
                 <br>
-                <input type="checkbox" value="Fruits" name="SA">Fruits
+                <input type="checkbox" value="Fruits" id="fruits">
+                <label for="fruits">Fruits</label>
                 <br>
             </div>
             <div>
                 <h5>Package</h5>
-                <input type="checkbox" value="Tomatoes" name="SA">Cardboard Box
+                <input type="checkbox" value="Tomatoes" id="cardboard">
+                <label for="cardboard">Cardboard Box</label>
                 <br>
-                <input type="checkbox" value="Vegetables" name="SA">Metal Box
+                <input type="checkbox" value="Vegetables" id="metal">
+                <label for="metal">Metal Box</label>
                 <br>
-                <input type="checkbox" value="Meat" name="SA">Plastic Box
+                <input type="checkbox" value="Meat" id="plastic">
+                <label for="plastic">Plastic Box</label>
                 <br>
-                <input type="checkbox" value="Fish" name="SA">Jar
+                <input type="checkbox" value="Fish" id="jar">
+                <label for="jar">Jar</label>
                 <br>
-                <input type="checkbox" value="Cheese" name="SA">Bottle
+                <input type="checkbox" value="Cheese" id="bottle">
+                <label for="bottle">Bottle</label>
                 <br>
-                <input type="checkbox" value="Fruits" name="SA">Casserole
+                <input type="checkbox" value="Fruits" id="casserole">
+                <label for="casserole">Casserole</label>
                 <br>
-                <input type="checkbox" value="Fruits" name="SA">Envelope
+                <input type="checkbox" value="Fruits" id="envelope">
+                <label for="envelope">Envelope</label>
                 <br>
             </div>
             <div>
                 <h5>Means of cooking</h5>
-                <input type="checkbox" value="Fruits" name="SA">Microwave
+                <input type="checkbox" value="Fruits" id="microwave">
+                <label for="microwave">Microwave</label>
                 <br>
-                <input type="checkbox" value="Fruits" name="SA">Gas Cooker
+                <input type="checkbox" value="Fruits" id="gascooker">
+                <label for="gascooker">Gas Cooker</label>
                 <br>
-                <input type="checkbox" value="Fruits" name="SA">Blender
+                <input type="checkbox" value="Fruits" id="blender">
+                <label for="blender">Blender</label>
                 <br>
             </div>
         </div>

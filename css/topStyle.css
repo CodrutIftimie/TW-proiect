@@ -1,24 +1,26 @@
-#tops {
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
+body {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
-#topsTd {
-    padding-left: 2%;
-    padding-right: 2%;
+#tops {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
 }
 
 .mostRecents {
-    display: table-block;
+    display: inline-block;
     border-width: thin;
     border-left-width: 0.5em;
     border-style: solid;
     border-color: rgba(0, 0, 255, 0.5);
     background: rgba(0, 0, 255, 0.25);
-    width: 100%;
+    width: 28%;
     height: 34em;
-    max-width: 500px;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
     overflow-y: auto;
 }
 
@@ -58,11 +60,18 @@
     text-shadow: 3px 3px black;
 }
 
-#recentsIcon {
+.recentsIcon {
     width: 75px;
     height: 75px;
     margin-right: 1em;
     margin-left: 1em;
+    border-radius: 50%;
+    padding: 5px;
+    border-width: 0em;
+    border-bottom-width: 0.2em;
+    border-style: solid;
+    border-color: white;
+    box-shadow: 0px 1px black;
 }
 
 .scrollbar::-webkit-scrollbar-track {
@@ -83,16 +92,6 @@
     height: 20px;
 }
 
-img {
-    border-radius: 50%;
-    padding: 5px;
-    border-width: 0em;
-    border-bottom-width: 0.2em;
-    border-style: solid;
-    border-color: white;
-    box-shadow: 0px 1px black;
-}
-
 .recentsText {
     font-family: 'Raleway', sans-serif;
     font-size: 1em;
@@ -102,7 +101,7 @@ img {
 
 #topMenu {
     width: 100vw;
-    position: relative;
+    position: fixed;
     margin-left: -8px;
     height: 50px;
     margin-top: -8px;
@@ -121,11 +120,13 @@ img {
     font-size: 2.2em;
     color: white;
     text-shadow: 3px 3px black;
+    padding-left: 1.3em;
 }
 
 #navMenu {
     right: 5%;
     position: absolute;
+    margin-left: 13em;
 }
 
 #navMenu button {
@@ -142,4 +143,23 @@ img {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+}
+
+
+#logo {
+    height: 2.3em;
+    max-width: 2em;
+    position: absolute;
+    margin-top: 2.85em;
+}
+
+#main {
+    display: table;
+    width: 80vw;
+    height: 100vw;
+    margin-left:auto;
+    margin-right:auto;
+    padding:0px;
+    background-color: rgba(255,255,255,0.8);
+    overflow: scroll;
 }
