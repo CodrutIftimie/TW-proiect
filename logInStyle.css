@@ -1,0 +1,36 @@
+body {
+    background: rgb(226, 226, 226);
+}
+
+#logBox {
+    padding-top: 2vw;
+    border-radius: 25px;
+    margin-top: 5em;
+    background: rgb(167, 166, 166);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 20vw;
+    text-align: center;
+    padding-bottom: 2vw;
+    font-size: 1vw;
+    height: 13vw;
+    width: 20vw;
+}
+
+#logBox input {
+    height: 1vw;
+    width: 7vw;
+}
+
+#logBox input:hover {
+    height: 1.2vw;
+    width: 8vw;
+    background: pink;
+    border-radius: 25px;
+}
+
+#name {
+    color: black;
+}
