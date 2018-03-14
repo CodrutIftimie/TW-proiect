@@ -5,20 +5,54 @@
         <link href="css/signUpStyle.css" rel="stylesheet">
     </head>
 
-    <body>
+    <body background="images/signUpBg.jpg">
+
+        <h1>
+            SIGN UP FORM
+        </h1>
+
         <div id="logBox">
-            <form>
-            <h3>Name:</h3>
-            <input type="text" placeholder="First name"> -<input type="text" placeholder="Second name">
-            <h3>Username:<h3>
-            <input type="text">
-            <h3>Password:</h2>
-            <input type="password">
-            <h3>E-mail:</h3>
-            <input type="email">
-            <h3>Phone number:</h3>
-            <input type="number" min="0000000000" max="9999999999">
-        </form>
+            <form id="form">
+
+                <div class="main">
+                    <div class="leftText">
+                        <label>Name:</label>
+                            <input type="text" name="name" placeholder="First name">
+                    </div>
+                    <div class="rightText">
+                        <input type="text" placeholder="Second name">
+                    </div>
+                </div>
+
+                <div class="main">
+                    <div class="centerText">
+                    <label>Username:</label>
+                        <input type="text" placeholder="Username">
+                    </div>
+                </div>
+
+                <div class="main">
+                    <div class="centerText">
+                    <label>Password:</label>
+                        <input type="password" placeholder="Password">
+                    </div>
+                </div>
+
+                <div class="main">
+                    <div class="centerText">
+                    <label>E-mail:</label>
+                        <input type="email" placeholder="E-mail">
+                    </div>
+                </div>
+
+                <div class="main">
+                    <div class="centerText">
+                    <label>Phone number:</label>
+                        <input type="number" min="0000000000" max="9999999999" placeholder="Phone number">
+                    </div>
+                </div>
+
+            </form>
         </div>
 
     </body>
