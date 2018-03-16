@@ -1,0 +1,109 @@
+#top {
+    padding-bottom:3em;
+    z-index: 100;
+}
+
+#topMenu {
+    width: 100vw;
+    position: fixed;
+    margin-left: -0.5em;
+    height: 3.2em;
+    margin-top: -0.5em;
+    background: green;
+    background: linear-gradient(to bottom, green,rgba(0, 255, 0, 0));
+    z-index: 100;
+
+}
+
+#top a:link {
+    text-decoration: none;
+    z-index: 100;
+}
+
+#siteName {
+    position: fixed;
+    margin-top: -42px;
+    left:12.5%;
+    z-index: 100;
+}
+
+#siteNameText {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2.2em;
+    color: white;
+    text-shadow: 3px 3px black;
+    padding-left: 1.3em;
+    z-index: 100;
+}
+
+#search input {
+    position:fixed;
+    display:block;
+    width:33vw;
+    height:2.5em;
+    margin: 0em;
+    padding: 0em 1em;
+    border: none;
+    left: 33vw;
+    top: 0.25em;
+    z-index: 100;
+    font-size: 1em;
+    background: rgba(255, 255, 255, 0.75);
+    -webkit-transition: .35s all ease;
+    transition: .35s all ease;
+}
+
+#search input:focus {
+    background:white;
+    padding: 0em 1.5em;
+    margin-left: -0.5em;
+    border-bottom-style: solid;
+    border-bottom-width: 0.2em;
+    border-bottom-color:black;
+}
+
+
+#navMenu {
+    right: 5%;
+    position: fixed;
+    margin-left: 13em;
+    z-index: 100;
+}
+
+#navMenu a.active button {
+    border-color: rgb(115, 255, 0);
+}
+
+#navMenu button:hover {
+    border-color: yellow;
+    background: rgba(0, 128, 0, 0.712);
+    padding-bottom:1.5em;
+}
+
+#navMenu button {
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    text-shadow: 1px 1px black;
+    background: linear-gradient(to bottom, green,rgba(0, 255, 0, 0));
+    border-width: 0px;
+    border-style: solid;
+    border-top-width: 4px;
+    border-color: limegreen;
+    padding: 1em 1.5em;
+    margin-top: -0.5em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    z-index: 100;
+    -webkit-transition: .5s all ease;
+    transition: .5s all ease;
+}
+
+#logo {
+    height: 2.3em;
+    max-width: 2em;
+    position: absolute;
+    margin-top: 2.85em;
+    z-index: 100;
+}
