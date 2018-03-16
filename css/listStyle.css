@@ -11,147 +11,17 @@ body {
     align-content: center;
 }
 
-#filters {
-    vertical-align: top;
-    display: inline-block;
-    width: 15%;
-    min-height: 40vh;
-    border-color: rgba(90, 90, 90, 1);
-    border-width: 0em 0.2em 0em 0.2em;
-    border-style: solid;
-    margin-left: 0em;
-    text-align: left;
-}
-
-#filters h6{
-    font-family: 'Fugaz One', cursive;
-    font-size: 2.5em;
-    border-bottom-style: solid;
-    border-bottom-color: rgba(90, 90, 90, 0.85);
-    border-bottom-width: thin;
-    margin-top: 0em;
-    margin-bottom: 0em;
-    padding: 0.2em;
-    background-color: rgba(245, 245, 245, 0.8);
-    text-align: center;
-}
-#filters input {
-    margin-left: 2em;
-    margin-right: 2em;
-}
-
-#filters h5 {
-    font-family: 'Fugaz One', cursive;
-    font-size:2.2em;
-    margin: 0em;
-    padding: 0.2em;
-    text-align: center;
-}
-
-#filters div {
-    position: relative;
-    background-color: rgba(245, 245, 245, 0.8);
-    margin-top: 0.1em;
-    padding-bottom: 1em;
-    padding-top: 0.2em;
-    margin-bottom: 0.1em;
-    z-index: 0;
-}
-
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
-}
-
-input[type=number] {
-    background-color: rgb(28, 139, 0);
-    margin: 0em;
-    color: white;
-    padding: 0.25em 1em 0.25em 1em;
-    border: 0em;
-    border-radius: 0.5em;
-    -webkit-transition: .35s all ease;
-    transition: .35s all ease;
-    transition-timing-function: ease;
-}
-
-input[type=number]:hover {
-    padding: 0.3em 1.1em 0.3em 1.1em;
-    margin: -0.1em;
-}
-
-input[type="checkbox"] {
-    display: none;
-}
-
-label {
-    position: relative;
-    display: inline-block;
-    margin-right: 0.8em;
-    margin-left: 2em;
-    margin-bottom: 0.5em;
-    padding-left: 2em;
-    padding-right: 0.8em;
-    line-height: 2.3em;
-    cursor: pointer;
-    font-family: 'Cabin', sans-serif;
-}
-
-label:hover {
-    padding-left: 2.3em;
-}
-
-label::before {
-    content: " ";
-    position: absolute;
-    top: 0.4em;
-    left: 0;
-    display: block;
-    width: 1em;
-    height: 1em;
-    border: 2px solid rgb(28, 139, 0);
-    border-radius: 5px;
-    color:white;
-    z-index: -1;
-}
-
-input[type="checkbox"]:checked + label {
-    padding-left: 1em;
-    color: #fff;
-    
-}
-
-input[type="checkbox"]:checked + label::before {
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgb(28, 139, 0);
-}
-
-label, label::before {
-    -webkit-transition: .35s all ease;
-    transition: .35s all ease;
-}
-
-.price {
-    text-align: center;
-}
-
-.price input {
-    max-width: 4em;
-    text-align: center;
-}
-
-.price input::placeholder {
-    color:rgb(187, 187, 187);
-    opacity: 1;
+.price input[type=number]::-webkit-inner-spin-button, 
+.price input[type=number]::-webkit-outer-spin-button { 
+-webkit-appearance: none; 
+margin: 0; 
 }
 
 #items {
     position: relative;
     display: inline-block;
-    width: 60%;
+    width: 90%;
+    min-width:300px;
     min-height: 90vh;
     background-color: rgba(245, 245, 245, 0.8);
 }
@@ -161,7 +31,7 @@ label, label::before {
     margin:0em;
     padding: 0em;
     position: absolute;
-    right:12em;
+    right:8.5em;
     top:0.55em;
     font-family: 'Inconsolata', monospace;
 }
@@ -169,9 +39,9 @@ label, label::before {
     top: 0.6em;
     position: absolute;
     right: 2em;
-    width: 10vw;
+    width: 10em;
     height: 3vh;
-    font-size:0.8em;
+    font-size: .8em;
     font-family: 'Mina', sans-serif;
     border-width: thin;
 }
@@ -288,7 +158,7 @@ label, label::before {
     border-style: solid;
     border-width:thin;
     border-color: green;
-    font-size: 1.2em;
+    font-size: 1em;
     border-radius: 0.2em;
     color: green;
 }
@@ -301,14 +171,22 @@ label, label::before {
     background: green;
     color:white;
 }
+
+#pageSelect p {
+    display: inline-block;
+    margin: .5em 0em;
+    font-size: 1.2em;
+    color: green;
+}
 .description {
     position: absolute;
     list-style-type: disc;
-    font-size: 0.9em;
+    font-size: 0.7em;
     left: 4em;
     bottom: 7.5em;
     text-align: left;
 }
+
 #footer {
     position: relative;
     left:-0.5em;
@@ -319,4 +197,293 @@ label, label::before {
     min-height: 5vh;
     margin: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
+}
+
+#filters {
+    display: block;
+    width: 80%;
+    min-width: 300px;
+    border-color: rgba(90, 90, 90, 1);
+    border-width: 0em 0.2em 0em 0.2em;
+    border-style: solid;
+    margin:1em auto;
+    text-align: left;
+}
+
+#filters h6{
+    font-family: 'Fugaz One', cursive;
+    font-size: 2.5em;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(90, 90, 90, 0.85);
+    border-bottom-width: thin;
+    margin-top: 0em;
+    margin-bottom: 0em;
+    padding: 0.2em;
+    background-color: rgba(245, 245, 245, 0.8);
+    text-align: center;
+}
+
+#filters h5 {
+    font-family: 'Fugaz One', cursive;
+    font-size:2.2em;
+    margin: 0em;
+    padding: 0.2em;
+    text-align: center;
+}
+
+#filters div {
+    position: relative;
+    background-color: rgba(245, 245, 245, 0.8);
+    margin-top: 0.1em;
+    padding-bottom: 1em;
+    padding-top: 0.2em;
+    margin-bottom: 0.1em;
+    z-index: 0;
+}
+
+.price input {
+    background-color: rgb(28, 139, 0);
+    margin: .2em;
+    color: white;
+    padding: 0.25em 0.1em;
+    border: 0em;
+    border-radius: 0.5em;
+    -webkit-transition: .35s all ease;
+    transition: .35s all ease;
+    transition-timing-function: ease;
+}
+
+.price input:focus {
+    padding: 0.3em 1.1em 0.3em 1.1em;
+    margin: .15em -0.1em;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+label {
+    position: relative;
+    display: inline-block;
+    margin-right: 0.8em;
+    margin-left: 2em;
+    margin-bottom: 0.5em;
+    padding-left: 2em;
+    padding-right: 0.8em;
+    line-height: 2.3em;
+    cursor: pointer;
+    font-family: 'Cabin', sans-serif;
+    font-size: 1.5em;
+}
+
+label:hover {
+    padding-left: 2.3em;
+}
+
+label::before {
+    content: " ";
+    position: absolute;
+    top: 0.4em;
+    left: 0;
+    display: block;
+    width: 1em;
+    height: 1em;
+    border: 2px solid rgb(28, 139, 0);
+    border-radius: 5px;
+    color:white;
+    z-index: -1;
+}
+
+input[type="checkbox"]:checked + label {
+    padding-left: 1em;
+    color: #fff;
+    
+}
+
+input[type="checkbox"]:checked + label::before {
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(28, 139, 0);
+}
+
+label, label::before {
+    -webkit-transition: .35s all ease;
+    transition: .35s all ease;
+}
+
+.price {
+    display: block;
+    text-align: center;
+}
+
+.price input {
+    display: inline-block;
+    max-width: 4em;
+    text-align: center;
+    margin-left: 0em;
+    margin-right: 0em;
+}
+
+.price input::placeholder {
+    color:rgb(187, 187, 187);
+    opacity: 1;
+}
+
+.price p {
+    margin: 0em;
+    display: inline-block;
+}
+
+@media (min-width:900px) {
+
+    #filters {
+        vertical-align: top;
+        display: inline-block;
+        width: 15%;
+        min-width: 300px;
+        border-color: rgba(90, 90, 90, 1);
+        border-width: 0em 0.2em 0em 0.2em;
+        border-style: solid;
+        margin-left: 0em;
+        text-align: left;
+    }
+
+    #filters h6{
+        font-family: 'Fugaz One', cursive;
+        font-size: 2.5em;
+        border-bottom-style: solid;
+        border-bottom-color: rgba(90, 90, 90, 0.85);
+        border-bottom-width: thin;
+        margin-top: 0em;
+        margin-bottom: 0em;
+        padding: 0.2em;
+        background-color: rgba(245, 245, 245, 0.8);
+        text-align: center;
+    }
+    #filters input {
+        margin-left: 2em;
+        margin-right: 2em;
+    }
+
+    #filters h5 {
+        font-family: 'Fugaz One', cursive;
+        font-size:2.2em;
+        margin: 0em;
+        padding: 0.2em;
+        text-align: center;
+    }
+
+    #filters div {
+        position: relative;
+        background-color: rgba(245, 245, 245, 0.8);
+        margin-top: 0.1em;
+        padding-bottom: 1em;
+        padding-top: 0.2em;
+        margin-bottom: 0.1em;
+        z-index: 0;
+    }
+
+    .price input[type=number] {
+        background-color: rgb(28, 139, 0);
+        margin: .2em;
+        color: white;
+        padding: 0.25em 0em;
+        border: 0em;
+        border-radius: 0.5em;
+        -webkit-transition: .35s all ease;
+        transition: .35s all ease;
+        transition-timing-function: ease;
+    }
+
+    input[type=number]:focus {
+        padding: 0.3em 1.1em 0.3em 1.1em;
+        margin: .15em -0.1em;
+    }
+
+    input[type="checkbox"] {
+        display: none;
+    }
+
+    label {
+        position: relative;
+        display: inline-block;
+        margin-right: 0.8em;
+        margin-left: 2em;
+        margin-bottom: 0.5em;
+        padding-left: 2em;
+        padding-right: 0.8em;
+        line-height: 2.3em;
+        cursor: pointer;
+        font-family: 'Cabin', sans-serif;
+        font-size: 1em;
+    }
+
+    label:hover {
+        padding-left: 2.3em;
+    }
+
+    label::before {
+        content: " ";
+        position: absolute;
+        top: 0.4em;
+        left: 0;
+        display: block;
+        width: 1em;
+        height: 1em;
+        border: 2px solid rgb(28, 139, 0);
+        border-radius: 5px;
+        color:white;
+        z-index: -1;
+    }
+
+    input[type="checkbox"]:checked + label {
+        padding-left: 1em;
+        color: #fff;
+        
+    }
+
+    input[type="checkbox"]:checked + label::before {
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgb(28, 139, 0);
+    }
+
+    label, label::before {
+        -webkit-transition: .35s all ease;
+        transition: .35s all ease;
+    }
+
+    .price {
+        display: block;
+        text-align: center;
+    }
+
+    .price input {
+        display: inline-block;
+        max-width: 4em;
+        text-align: center;
+        margin-left: 0em;
+        margin-right: 0em;
+    }
+
+    .price input::placeholder {
+        color:rgb(187, 187, 187);
+        opacity: 1;
+    }
+
+    .price p {
+        margin: 0em;
+        display: inline-block;
+    }
+
+    #items {
+        position: relative;
+        display: inline-block;
+        width: 60%;
+        min-width:300px;
+        min-height: 90vh;
+        background-color: rgba(245, 245, 245, 0.8);
+    }
 }
