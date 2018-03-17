@@ -3,6 +3,9 @@
 
 <head>
     <title>CanF - Products List</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link href="images/icon.ico" rel="shortcut icon">
     <link href="css/navStyle.css" rel="stylesheet">
     <link href="css/listStyle.css" rel="stylesheet">
@@ -25,14 +28,15 @@
             </div>
         </div>
         <div id="search">
-            <input type="text" placeholder="Search for...">
+            <input type="text" placeholder="&#x1F50E; Search for a product...">
         </div>
         <div id="navMenu">
+            <div id="menubutton"></div>
             <a href="index.html">
                 <button type="button">Home</button>
             </a>
             <a class="active" href="list.html">
-                <button type="button">Products List</button>
+                <button type="button">Products</button>
             </a>
             <a href="#">
                 <button type="button">Contact</button>
@@ -44,8 +48,9 @@
             <h6>Filter by...</h6>
             <div class="price">
                 <h5>Price</h5>
-                <input type="number" min="0" max="9999" placeholder="min"> -
-                <input type="number" min="0" max="9999" placeholder="max">
+                <input type="number" placeholder="min">
+                <input type="number" placeholder="max">
+
             </div>
             <div class="ingredients">
                 <h5>Ingredients</h5>
@@ -110,7 +115,8 @@
             <select>
                 <option>Price ascending</option>
                 <option>Price descending</option>
-                <option>Name alphabetical</option>
+                <option>Name A - Z</option>
+                <option>Name Z - A</option>
             </select>
             <ul>
                 <li>
@@ -210,10 +216,7 @@
                 <a href="#" class="active">1</a>
                 <a href="#">2</a>
                 <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#">6</a>
-                <a href="#">7</a>
+                <p>...</p>
                 <a href="#">8</a>
                 <a href="#">9</a>
                 <a href="#">Next</a>

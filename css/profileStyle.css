@@ -9,7 +9,7 @@ body {
     min-height: 92vh;
     margin-left: auto;
     margin-right: auto;
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, .75);
 }
 
 #navigation {
@@ -20,10 +20,10 @@ body {
 
 #info {
     width: 100%;
-    height: 10vh;
-    background: rgba(148, 255, 121, 0.616);
+    height: 5me;
+    background: rgba(148, 255, 121, .616);
     text-align: center;
-    border: thin solid rgba(0, 0, 0, 0.5);
+    border: thin solid rgba(0, 0, 0, .5);
 }
 
 #user {
@@ -40,10 +40,10 @@ body {
 
 #navigation button {
     width: 100%;
-    height: 8vh;
-    margin: .5em 0em;;
+    height: 5em;
+    margin: .5em 0em;
     border: none;
-    border-left: .2em solid rgba(0, 0, 0, 0.85);
+    border-left: .2em solid rgba(0, 0, 0, .85);
     background: green;
     color:white;
     font-size:1.1em;
@@ -87,7 +87,7 @@ body {
 .product {
     display: block;
     position: relative;
-    margin: 0.5em auto;
+    margin: .5em auto;
     width: 90%;
     height: 5em;
     border: 2px solid black;
@@ -145,7 +145,7 @@ body {
     height: 1.5em;
     border: none;
     border-left: thin solid black;
-    background: rgba(0, 150, 0, 0.452);
+    background: rgba(0, 150, 0, .452);
     margin: 0em 2%;
     transition: .35s all ease;
 }
@@ -157,7 +157,7 @@ body {
 #save button{
     color: white;
     background: green;
-    width:10vw;
+    width:25%;
     height:3em;
     border: none;
     margin: 4em 0em 1em 0em;
@@ -165,11 +165,11 @@ body {
 
 #footer {
     position: relative;
-    left:-0.5em;
+    left:-.5em;
     bottom: -1em;
     width:99.1vw;
     display: block;
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: rgba(0, 0, 0, .85);
     min-height: 5vh;
     margin: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
@@ -181,16 +181,78 @@ body {
 }
 
 #pageSelect a {
-    margin:0em 0.2em;
-    padding:0.1em 0.4em 0.2em 0.4em;
+    margin:0em .2em;
+    padding:.1em .4em .2em .4em;
     border-style: solid;
     border-width:thin;
     border-color: green;
     font-size: 1.2em;
-    border-radius: 0.2em;
+    border-radius: .2em;
     color: green;
 }
 
 #pageSelect a:link {
     text-decoration: none;
+}
+
+@media(max-width:920px) {
+
+    #body {
+        width: 90%;
+    }
+    #navigation {
+        width: 90%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #navigation form {
+        width: 45%;
+        display: inline-block;
+        margin-left: 2.2%;
+        margin-right: 2%;
+        padding: 0em;
+        margin: .2em;
+    }
+
+    #navigation button {
+        height: 5em;
+        padding: 0em;
+    }
+
+    #content {
+        width: 90%;
+        display: block;
+        border: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .product {
+        min-height: 5em;
+        max-height: 15em;
+        height: auto;
+    }
+
+    .product img {
+        display: none;
+    }
+
+    .product .description {
+        padding-left: 0em;
+    }
+
+    .profileDiv p, .profileDiv input {
+        width: 40%;
+    }
+
+    .profileDiv input {
+        width: 45%;
+    }
+
+    .profileDiv input:focus {
+        width: 50%;
+        margin-left: -1%;
+    }
 }
