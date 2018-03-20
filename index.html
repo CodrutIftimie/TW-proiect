@@ -5,6 +5,7 @@
     <title>CanF (Canned Food Manager)</title>
 
     <link rel="stylesheet" href="css/topStyle.css">
+    <link href="css/navStyle.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:500" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
@@ -13,44 +14,36 @@
 <body>
 
     <a href="index.html">
-        <div id="topMenu">
-            <div id="siteName">
-                <img id="logo" src="images/logo.png">
-                <p id="siteNameText">
-                    CanF
-                </p>
-            </div>
-            <div id="navMenu">
-                <a href="index.html">
-                    <button type="button">Home</button>
-                </a>
-                <a href="list.html">
-                    <button type="button">Products List</button>
-                </a>
-                <a href="#">
-                    <button type="button">Contact</button>
-                </a>
-                <a href="LogIn.html">
-                    <button type="button">Log In</button>
-                </a>
-                <a href="SignUp.html">
-                    <button type="button">Sign Up</button>
-                </a>
-            </div>
-        </div>
+            <div id="top">
+                    <div id="topMenu">
+                        <div id="siteName">
+                            <a href="index.html">
+                                <img id="logo" src="images/logo.png">
+                                <p id="siteNameText">
+                                    CanF
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                    <div id="search">
+                        <input type="text" placeholder="&#x1F50E; Search for a product...">
+                    </div>
+                    <div id="navMenu">
+                        <div id="menubutton"></div>
+                        <a href="index.html">
+                            <button type="button">Home</button>
+                        </a>
+                        <a class="active" href="list.html">
+                            <button type="button">Products</button>
+                        </a>
+                        <a href="#">
+                            <button type="button">Contact</button>
+                        </a>
+                    </div>
+                </div>
     </a>
 
     <div id="middle">
-
-        <div id="slider">
-            <figure>
-                <!--<img src="http://www.lachoy.com/sites/g/files/qyyrlu341/files/images/products/sweet-sour-chicken-03013.png">-->
-                <img src="https://inhabitat.com/inhabitots/wp-content/blogs.dir/24/files/2012/06/BPA-free-can-linings-Campbells.jpg">
-                <img src="http://placehold.it/400x100">
-                <img src="https://i.pinimg.com/originals/ea/f8/0c/eaf80c4b8a146baab40b5a7f87268d14.jpg">
-                <!--<img src="https://cdn0.woolworths.media/content/wowproductimages/large/045934.jpg">-->
-            </figure>
-        </div>
 
         <div class="containerImg">
 
@@ -265,64 +258,30 @@
 
         </div>
 
-        <table align="center">
-            <tr>
-                <th>Contact</th>
-                <th>Account</th>
-                <th>Help Center</th>
-                <th>Social media</th>
-            </tr>
-            <tr>
-                <td>Telefon: </td>
-                <td>Create Account</td>
-                <td>How to order</td>
-                <td>FB icon</td>
-            </tr>
-            <tr>
-                <td>Email: </td>
-                <td>My Account</td> 
-                <td>Refunding</td>
-                <td>Twitter icon</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>Payment</td>
-                <td>Insta icon</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>Terms&Conditions</td>
-                <td>&nbsp;</td>
-            </tr>
-        </table>
+    </div>
 
-        <div id="footer">
+    <div id="footer">
 
             <div id="contact">
-                <p class="head">Contact</p>
-                0764 646 646
-                email@mail.congo
+                <h5 class="head">Contact</h5>
+                <a class="footerA" href="#"><p>0764 646 646</p></a>
+                <a class="footerA" href="#"><p>email@mail.congo</p></a>
             </div>
 
             <div id="help">
-                <p class="head">Help Center</p>
-                How to order
-                Refunding
-                Payment
-                Terms&Conditions
+                <h5 class="head">Help Center</h5>
+                <a class="footerA" href="#"><p>FAQ</p></a>
+                <a class="footerA" href="#"><p>Terms&Conditions</p></a>
             </div>
 
             <div id="account">
-                <p class="head">Account</p>
-                Create Account
-                My Account
+                <h5 class="head">Account</h5>
+                <a class="footerA" href="SignUp.html"><p>Create Account</p></a>
+                <a class="footerA" href="#"><p>My Account</p></a>
             </div>
 
         </div>
-
-    </div>
+        
 </body>
 
 </html>

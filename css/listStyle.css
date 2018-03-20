@@ -1,5 +1,5 @@
 body {
-    background-attachment: fixed;
+    background: #ECECEA;
 }
 
 #body {
@@ -68,7 +68,6 @@ margin: 0;
     -webkit-transition: .35s all ease;
     transition: .35s all ease;
     transition-timing-function: ease;
-    cursor: pointer;
 }
 
 /*#items > ul > li:hover {
@@ -82,8 +81,8 @@ margin: 0;
 }*/
 
 #items > ul > li img {
-    width: 10em;
-    height: auto;
+    width: auto;
+    height: 10em;
     padding-top: 1em;
     padding-bottom: 1em;
     border-bottom-style: solid;
@@ -92,9 +91,10 @@ margin: 0;
 }
 
 #items > ul > li h1 {
-    font-size: 1em;
-    margin-top: .7em;
-    margin-bottom: 0em;
+    font-size: 1.2em;
+    margin: 0em;
+    padding: 0em;
+    font-family: 'Farsan', cursive;
 }
 
 #items > ul > li h2 {
@@ -106,18 +106,23 @@ margin: 0;
     margin-right: auto;
     left: 0;
     right: 0;
-    bottom: 6.5em;
+    bottom: 6.2em;
 }
 
 #items > ul > li h3 {
     position: absolute;
     font-size: 1.7em;
-    color: green;
+    font-family: 'Montserrat', sans-serif;
+    color: darkgreen;
     margin-left: auto;
     margin-right: auto;
     left: 0;
     right: 0;
-    bottom: 1em;
+    bottom: .8em;
+}
+
+h3 sup {
+    font-size:.5em;
 }
 
 #items > ul > li button {
@@ -125,7 +130,7 @@ margin: 0;
     color: white;
     font-family: 'Raleway', sans-serif;
     text-shadow: 1px 1px black;
-    background: rgb(28, 139, 0);
+    background: #2B2B2B;
     border-width: 1px;
     width: 10em;
     text-align: center;
@@ -157,10 +162,10 @@ margin: 0;
     padding:.1em .4em .2em .4em;
     border-style: solid;
     border-width:thin;
-    border-color: green;
+    border-color: #A5A5AF;
     font-size: 1em;
     border-radius: .2em;
-    color: green;
+    color: #015249;
 }
 
 #pageSelect a:link {
@@ -168,7 +173,7 @@ margin: 0;
 }
 
 #pageSelect a.active {
-    background: green;
+    background: #A5A5AF;
     color:white;
 }
 
@@ -176,7 +181,7 @@ margin: 0;
     display: inline-block;
     margin: .5em 0em;
     font-size: 1.2em;
-    color: green;
+    color: #015249;
 }
 .description {
     position: absolute;
@@ -195,8 +200,8 @@ margin: 0;
     display: block;
     background-color: rgba(0, 0, 0, .85);
     min-height: 5vh;
-    margin: 0px 0px 0px 0px;
-    padding: 0px 0px 0px 0px;
+    margin: 0px;
+    padding: 0px;
 }
 
 #filters {
@@ -206,7 +211,7 @@ margin: 0;
     border-color: rgba(90, 90, 90, 1);
     border-width: 0em .2em 0em .2em;
     border-style: solid;
-    margin:1em auto;
+    margin:0em auto;
     text-align: left;
 }
 
@@ -242,7 +247,7 @@ margin: 0;
 }
 
 .price input {
-    background-color: rgb(28, 139, 0);
+    background-color: #2B2B2B;
     margin: .2em;
     color: white;
     padding: .25em .1em;
@@ -288,7 +293,7 @@ label::before {
     display: block;
     width: 1em;
     height: 1em;
-    border: 2px solid rgb(28, 139, 0);
+    border: 2px solid #2B2B2B;
     border-radius: 5px;
     color:white;
     z-index: -1;
@@ -304,7 +309,7 @@ input[type="checkbox"]:checked + label::before {
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgb(28, 139, 0);
+    background: #A5A5AF;
 }
 
 label, label::before {
@@ -342,7 +347,6 @@ label, label::before {
         display: inline-block;
         width: 15%;
         min-width: 300px;
-        border-color: rgba(90, 90, 90, 1);
         border-width: 0em .2em 0em .2em;
         border-style: solid;
         margin-left: 0em;
@@ -353,12 +357,10 @@ label, label::before {
         font-family: 'Fugaz One', cursive;
         font-size: 2.5em;
         border-bottom-style: solid;
-        border-bottom-color: rgba(90, 90, 90, .85);
         border-bottom-width: thin;
         margin-top: 0em;
         margin-bottom: 0em;
         padding: .2em;
-        background-color: rgba(245, 245, 245, .8);
         text-align: center;
     }
     #filters input {
@@ -376,7 +378,6 @@ label, label::before {
 
     #filters div {
         position: relative;
-        background-color: rgba(245, 245, 245, .8);
         margin-top: .1em;
         padding-bottom: 1em;
         padding-top: .2em;
@@ -385,7 +386,6 @@ label, label::before {
     }
 
     .price input[type=number] {
-        background-color: rgb(28, 139, 0);
         margin: .2em;
         color: white;
         padding: .25em 0em;
@@ -431,7 +431,7 @@ label, label::before {
         display: block;
         width: 1em;
         height: 1em;
-        border: 2px solid rgb(28, 139, 0);
+        border: 2px solid #2B2B2B;
         border-radius: 5px;
         color:white;
         z-index: -1;
@@ -447,7 +447,7 @@ label, label::before {
         top: 0;
         width: 100%;
         height: 100%;
-        background: rgb(28, 139, 0);
+        background: #2B2B2B;
     }
 
     label, label::before {
@@ -469,7 +469,7 @@ label, label::before {
     }
 
     .price input::placeholder {
-        color:rgb(187, 187, 187);
+        color:white;
         opacity: 1;
     }
 
