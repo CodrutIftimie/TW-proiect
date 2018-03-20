@@ -7,61 +7,108 @@
         <link href="https://fonts.googleapis.com/css?family=Hind+Siliguri" rel="stylesheet">
     </head>
 
-    <body background="http://imaginifundal.ro/web/wallpapers/wallpaper-lan-de-grau/1920x1080.jpg">
+    <body background="images/bg.png">
         <div id="top">
-                <div id="topMenu">
-                    <div id="siteName">
-                        <a href="index.html">
-                            <img id="logo" src="images/logo.png">
-                            <p id="siteNameText">
-                                CanF
-                            </p>
-                        </a>
-                    </div>
-                </div>
-                <div id="search">
-                    <input type="text" placeholder="Search for...">
-                </div>
-                <div id="navMenu">
+            <div id="topMenu">
+                <div id="siteName">
                     <a href="index.html">
-                        <button type="button">Home</button>
-                    </a>
-                    <a  href="list.html">
-                        <button type="button">Products List</button>
-                    </a>
-                    <a href="#">
-                        <button type="button">Contact</button>
+                        <img id="logo" src="images/logo.png">
+                        <p id="siteNameText">
+                            CanF
+                        </p>
                     </a>
                 </div>
             </div>
+            <div id="search">
+                <input type="text" placeholder="Search for...">
+            </div>
+            <div id="navMenu">
+                <a href="index.html">
+                    <button type="button">Home</button>
+                </a>
+                <a href="list.html">
+                    <button type="button">Products List</button>
+                </a>
+                <a href="#">
+                    <button type="button">Contact</button>
+                </a>
+            </div>
+        </div>
 
         <div class="mainInf">
             <div id="font">
                 <p class="fontTextNume">Mustar din Tecuci - Olympia - 300 g e /314 ml</p>
             </div>
             <div class="inline" id="imagine">
-                <img src="https://static.openfoodfacts.org/images/products/594/146/600/2571/front_ro.13.400.jpg" height="100%" width="100%">
+                <img src="https://static.openfoodfacts.org/images/products/594/146/600/2571/front_ro.13.400.jpg" height="100%">
             </div>
             <div class="inline">
                 <div id="infDeBaza">
-                    INFORMATII DE BAZA
+
+                    <div class="co">
+                        <b>Caracteristicile produslui</b>
+                    </div>
+                    <ul class="lista">
+                        <li class="lista">Cantitate: 300 g e /314 ml</li>
+                        <li class="lista">Ambalare: Bocal, Verre, métal</li>
+                        <li class="lista">Mărci: Olympia</li>
+                        <li class="lista">Țările unde se vinde: Franța, România</li>
+                    </ul>
                 </div>
                 <div id="alteImagini">
-                    ALTE IMAGINI
+                    <ul style="list-style-type:none">
+                        <div class="alt">
+                            <li>
+                                <img src="http://www.viostel.ro/pics/large/2538_1380_prd.jpg" height="100%"> </li>
+                        </div>
+                        <div class="alt">
+                            <li>
+                                <img src="http://www.viostel.ro/pics/large/2538_1380_prd.jpg" height="100%"> </li>
+                        </div>
+
+
+                    </ul>
                 </div>
 
             </div>
             <div class="jos" id="alteInf">
-                ALTE INFORMATII
+                <div class="co">
+                    <b>Informatii suplimentare</b>
+                </div>
+                <div class="lista1">
+                    <ul style="list-style-type:none">
+
+                        <li class="lista1"><b>Ingrediente:</b> Apà, mustar boabe (18 %) otet din alcool, zahâr, sare iodatà, amidon modificat din porumb, stabilizator (gumà xantan), colorant (betacaroten), amestec condimente.</li>
+                        <li class="lista1"><b>Cod de bare: </b>5941466002571 (EAN / EAN-13</li>
+                        <li class="lista1"><b>Adresa Producatorului: </b>Municipiul Tecuci, strada Costache Conache Nr:07</li>
+                        <li class="lista1"><b>Termen de valabilitate: </b>2 luni de la deschiderea produsului</li>
+                        <li class="lista1"><b>Depozitare: </b>A nu fi tinut la umiditate</li>
+                        <li class="lista1"><b>Maniera de ambalare: </b>cutie de plastic</li>
+                        <li class="lista1"><b>Warning: </b>the amount of fruits, vegetable and nuts is not specified, their possible positive to the grade could not be taken into account.</li>
+                    </ul>
+                </div>
             </div>
             <div class="jos" id="comentarii">
-                COMENTARII
+                <div class="co">COMENTARII</div>
+                <div class="lista1">
+                        <ul style="list-style-type:none">
+    
+                            <li class="lista1"><b>Lavinia: </b> Recomand acest produs</li>
+                            <li class="lista1"><b>Eustache: </b> Foarte bun, astept si varianta iute</li>
+                            <li class="lista1"><b>Clementia: </b> Sunt din Frante si ador acest produs</li>
+                            <li class="lista1"><b>Vasilica: </b> Vin te la Vaslui la Tecuci sa cumpar mustarul vostru</li>
+                            <li class="lista1"><b>Margareta: </b> Abia astept sa se organizeze festivalul mustarului</li>
+                            <li class="lista1"><b>Ion Iliescu: </b> Buna treaba !</li>
+                            <li class="lista1"><b>Micutzu: </b> Mananc un borcan pe zi</li>
+                            <li class="lista1"><b>Iohanis: </b> O sa incerc si eu</li>
+                        </ul>
+                    </div>
             </div>
             <div class="jos1" id="addCom">
-                
-                    <input id="text"  class="buton" placeholder="Add a comment !" />
-                    <button type="button" class="buton" onclick="alert('Comentariu adaugat!')">SEND</button>
-                
+
+                <input id="text" class="buton" placeholder="Add a comment !" />
+                <button type="button" class="buton" onclick="alert('Comentariu adaugat!')">SEND</button>
+
             </div>
         </div>
     </body>

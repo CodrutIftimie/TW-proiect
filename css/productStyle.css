@@ -60,7 +60,7 @@
 }
 .mainInf{
     
-    height:90vw;
+    min-height:90vw;
     width: 75%;
     overflow-x: hidden;
     background:   rgb(233, 235, 238) ;
@@ -74,9 +74,6 @@ body {
     background-repeat:no-repeat;
     background-attachment:fixed;
 }
-
-
-
 #topsTd {
 
     padding-left: 2%;
@@ -89,29 +86,23 @@ body {
     width: 80%;
     
 }
-
-
-
 #font{
     
     box-shadow: 1px 1px rgba(0,0,0,1);
     background-color: #565e3623;
-    height: 5%;
+    height: 11%;
     width:  90%;
     margin-top: -50px;
     margin-left:auto;
     margin-right:auto;
     text-align:center;
+    margin-bottom: 50px
 }
-
-
-
 .fontTextNume{
 
     font-family: 'Hind Siliguri', sans-serif;
     text-align: center;
-
-    font-size: 60
+    font-size: 60;
 }
 .fontText{
 
@@ -123,73 +114,86 @@ body {
     display:inline-block;
     height: 30%;
     font-family: 'Libre Franklin', sans-serif;
-    text-align: center;  
-    
-    margin:auto;
     margin-top:10px;
-
-
 }
 #imagine{
     width: 500px;
+    height: 60%;
     margin-left: 150px;
     vertical-align:top;
-    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.6);
-    background-color: #5a613f0a;
 }
 #infDeBaza{
     width: 600px;
-    height:65%;
+    height:95%;
     margin-bottom: 25px;
-    margin-left: 20px;
     box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.6);
     background-color: #5a613f0a;
+    padding-top:1px;
+    padding-bottom: 25px;;
+    font-size:25;
+    
 }
 #alteImagini{
     width: 600px;
-    height:30%;
-    margin-left: 20px;
+    height:80%;
     margin-top:20px;
-    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.6);
-    background-color: #5a613f0a;
+    
+   
+    vertical-align: to
 }
     
+.alt{
+
+    display: inline-block;
+}
 .jos{
    
     font-family: 'Libre Franklin', sans-serif;
     text-align: center;  
-    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.6);
-    
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.6);   
     margin-left: 150px;
     margin-top: 20px;
     width:1124px;
 }
 #alteInf{
-    height: 25%;
+    height: 50%;
     background-color: #5a613f0a;
+    padding-top:1px;
+    padding-bottom: 25px;;
+    font-size:25;
 }
 #comentarii{
-    height:25%;
+    height:50%;
     background-color: #5a613f0a;
-
+    padding-top:1px;
+    padding-bottom: 25px;;
+    font-size:25;
 }
+.co{
+
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.6);
+    padding-top:5px;
+    padding-bottom: 5px;;
+    width: 100%;
+}
+
 #addCom{
+
     height:2%;
 }
 #text{
    
-   padding-left:15px;
-   padding-right: 15px;
-width: 93.5%;
-height: 100%;
-margin-right:1px;
+    padding-left:15px;
+    padding-right: 15px;
+    width: 93.5%;
+    height: 100%;
+    margin-right:1px;
 }
 .jos1{
     display: block;
     font-family: 'Libre Franklin', sans-serif;
     text-align: center;  
     box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.6);
-    
     margin-left: 150px;
     margin-top: 20px;
     width:79.5%;
@@ -199,4 +203,16 @@ margin-right:1px;
     width: 6.1%;
     height: 100%;
     
+}
+.lista{
+    padding-top:20px;
+    padding-left:75px;
+    text-align: left;
+    font-size :20;
+}
+.lista1{
+    padding-top:20px;
+    padding-left:15px;
+    text-align: left;
+    font-size :17;
 }
