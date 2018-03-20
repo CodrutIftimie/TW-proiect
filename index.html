@@ -5,6 +5,7 @@
     <title>CanF (Canned Food Manager)</title>
 
     <link rel="stylesheet" href="css/topStyle.css">
+    <link href="css/navStyle.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:500" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
@@ -13,31 +14,33 @@
 <body>
 
     <a href="index.html">
-        <div id="topMenu">
-            <div id="siteName">
-                <img id="logo" src="images/logo.png">
-                <p id="siteNameText">
-                    CanF
-                </p>
-            </div>
-            <div id="navMenu">
-                <a href="index.html">
-                    <button type="button">Home</button>
-                </a>
-                <a href="list.html">
-                    <button type="button">Products List</button>
-                </a>
-                <a href="#">
-                    <button type="button">Contact</button>
-                </a>
-                <a href="LogIn.html">
-                    <button type="button">Log In</button>
-                </a>
-                <a href="SignUp.html">
-                    <button type="button">Sign Up</button>
-                </a>
-            </div>
-        </div>
+            <div id="top">
+                    <div id="topMenu">
+                        <div id="siteName">
+                            <a href="index.html">
+                                <img id="logo" src="images/logo.png">
+                                <p id="siteNameText">
+                                    CanF
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                    <div id="search">
+                        <input type="text" placeholder="&#x1F50E; Search for a product...">
+                    </div>
+                    <div id="navMenu">
+                        <div id="menubutton"></div>
+                        <a href="index.html">
+                            <button type="button">Home</button>
+                        </a>
+                        <a class="active" href="list.html">
+                            <button type="button">Products</button>
+                        </a>
+                        <a href="#">
+                            <button type="button">Contact</button>
+                        </a>
+                    </div>
+                </div>
     </a>
 
     <div id="middle">
@@ -255,7 +258,9 @@
 
         </div>
 
-        <div id="footer">
+    </div>
+
+    <div id="footer">
 
             <div id="contact">
                 <h5 class="head">Contact</h5>
@@ -271,13 +276,12 @@
 
             <div id="account">
                 <h5 class="head">Account</h5>
-                <a class="footerA" href="#"><p>Create Account</p></a>
+                <a class="footerA" href="SignUp.html"><p>Create Account</p></a>
                 <a class="footerA" href="#"><p>My Account</p></a>
             </div>
 
         </div>
-
-    </div>
+        
 </body>
 
 </html>

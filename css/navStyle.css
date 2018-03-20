@@ -9,8 +9,7 @@
     margin-left: -0.5em;
     height: 3.2em;
     margin-top: -0.5em;
-    background: green;
-    background: linear-gradient(to bottom, green,rgba(0, 255, 0, 0));
+    background: #24292e;
     z-index: 100;
 
 }
@@ -31,8 +30,9 @@
     height: 2.3em;
     max-width: 2em;
     position: absolute;
-    margin-top: 2.85em;
+    margin-top: 3em;
     z-index: 100;
+    transform: rotate(-10deg);
 }
 
 #search input {
@@ -47,20 +47,23 @@
     top: 0.25em;
     z-index: 100;
     font-size: 1em;
+    font-family: 'Raleway', sans-serif;
     border-radius: .2em;
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0);
+    color:white;
     -webkit-transition: .35s all ease;
     transition: .35s all ease;
 }
 
 #search input:focus {
     width: 55%;
+    color:black;
     background:white;
     padding: 0em 1.5em;
     margin-left: -0.5em;
     border-bottom-style: solid;
     border-bottom-width: 0.2em;
-    border-bottom-color:black;
+    border-bottom-color:whitesmoke;
     z-index: 101;
 }
 
@@ -72,25 +75,25 @@
 }
 
 #navMenu a.active button {
-    border-color: rgb(115, 255, 0);
+    border-color: #DADADA;
 }
 
 #navMenu button:hover {
-    border-color: yellow;
-    background: rgba(0, 128, 0, 0.712);
-    padding-bottom:1.5em;
+    border-color: rgb(255, 255, 255);
+    color:white;
 }
 
 #navMenu button {
     width: 5em;
-    color: white;
+    color: rgb(199, 199, 199);
     font-family: 'Raleway', sans-serif;
     text-shadow: 1px 1px black;
-    background: linear-gradient(to bottom, green,rgba(0, 255, 0, 0));
+    /*background: linear-gradient(to bottom, #A5A5AF,rgba(0, 0, 255, 0));*/
+    background: rgba(0,0,0,0);
     border-width: 0px;
     border-style: solid;
     border-top-width: 4px;
-    border-color: limegreen;
+    /*border-color: grey;*/
     padding: 1em .1em;
     margin-top: -0.5em;
     text-align: center;
@@ -100,6 +103,7 @@
     z-index: 100;
     -webkit-transition: .5s all ease;
     transition: .5s all ease;
+    cursor: pointer;
 }
 
 
@@ -117,6 +121,7 @@
     #search input {
         position:fixed;
         display:block;
+        color:white;
         width:25%;
         height:2.5em;
         margin: 0em;
@@ -126,7 +131,6 @@
         top: 0.25em;
         z-index: 100;
         font-size: 1em;
-        background: rgba(255, 255, 255, 0.75);
         -webkit-transition: .35s all ease;
         transition: .35s all ease;
     }
@@ -134,6 +138,10 @@
     #search input:focus {
         width: 32%;
         left: 22%;
+    }
+
+    #search input::placeholder {
+        color:white;
     }
     
     #menubutton {
@@ -145,34 +153,63 @@
         margin-left: 0em;
     }
 
-    #navMenu a.active button {
-        border-color: rgb(115, 255, 0);
-    }
-
-    #navMenu button:hover {
-        border-color: yellow;
-        background: rgba(0, 128, 0, 0.712);
-        padding-bottom:1.5em;
-    }
-
     #navMenu button {
         width: auto;
-        color: white;
-        font-family: 'Raleway', sans-serif;
-        text-shadow: 1px 1px black;
-        background: linear-gradient(to bottom, green,rgba(0, 255, 0, 0));
-        border-width: 0px;
-        border-style: solid;
-        border-top-width: 4px;
-        border-color: limegreen;
         padding: 1em 1.5em;
         margin-top: -0.5em;
-        text-align: center;
-        text-decoration: none;
         display: inline-block;
         font-size: 16px;
-        z-index: 100;
-        -webkit-transition: .5s all ease;
-        transition: .5s all ease;
     }
 }
+
+#footer {
+    position: relative;
+    bottom: -1em;
+    margin-top: 5vh;
+    display: block;
+    margin-left: -0.5em;
+    margin-bottom: -1em;
+    width: 100.85%;
+    background: rgba(1, 1, 1, .5);
+    color: whitesmoke;
+    /* padding-left: 4em; */
+    text-align: center;
+}
+/* position: relative;
+    left:-.5em;
+    bottom: -1em;
+    width:99.1vw;
+    display: block;
+    background-color: rgba(0, 0, 0, .85);
+    min-height: 5vh;
+    margin: 0px;
+    padding: 0px; */
+
+#footer #contact,
+#footer #help,
+#footer #account {
+    display: inline-block;
+    width: 30%;
+    height: inherit;
+    font-size: 20px;
+    text-align: center;
+    vertical-align: top;
+}
+
+#footer .head {
+    border-bottom: 2px solid black;
+    padding: 0;
+    width: 150px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 25px;
+    padding-bottom: 10px;
+    text-shadow: 2px 3px rgba(0, 0, 0, 0.42);
+}
+
+#footer a { text-decoration: none; color: whitesmoke; }
+#footer a:visited { text-decoration: none; }
+#footer a:hover { text-decoration: none; }
+#footer a:focus { text-decoration: none; }
+#footer a:hover, a:active { text-decoration: none; }

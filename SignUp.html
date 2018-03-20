@@ -1,59 +1,161 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>CanF SignUp</title>
-        <link href="css/signUpStyle.css" rel="stylesheet">
-    </head>
 
-    <body background="images/signUpBg.jpg">
+<head>
+    <title>CanF SignUp</title>
+    <link href="css/signUpStyle.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:500|Permanent+Marker|Fugaz+One" rel="stylesheet">
+    <link href="css/navStyle.css" rel="stylesheet">
+</head>
 
-        <h1>
-            SIGN UP FORM
-        </h1>
+<body>
 
-        <div id="logBox">
-            <form id="form">
+    <div id="top">
+        <div id="topMenu">
+            <div id="siteName">
+                <a href="index.html">
+                    <img id="logo" src="images/logo.png">
+                    <p id="siteNameText">
+                        CanF
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div id="search">
+            <input type="text" placeholder="&#x1F50E; Search for a product...">
+        </div>
+        <div id="navMenu">
+            <div id="menubutton"></div>
+            <a href="index.html">
+                <button type="button">Home</button>
+            </a>
+            <a class="active" href="list.html">
+                <button type="button">Products</button>
+            </a>
+            <a href="#">
+                <button type="button">Contact</button>
+            </a>
+        </div>
+    </div>
 
-                <div class="main">
-                    <div class="leftText">
-                        <label>Name:</label>
-                            <input type="text" name="name" placeholder="First name">
+    <div id="total">
+        <div id="sign">
+            <h1>
+                SIGN UP FORM
+            </h1>
+
+            <div id="logBox">
+                <form>
+
+                    <div class="main">
+                        <div class="leftText">
+                            <label for="name">Name:</label>
+                        </div>
+                        <div class="rightText">
+                            <input type="text" id="name" name="fsname" placeholder="First name">
+                            <input type="text" id="name" name="fsname" placeholder="Second name">
+                        </div>
                     </div>
-                    <div class="rightText">
-                        <input type="text" placeholder="Second name">
-                    </div>
-                </div>
 
-                <div class="main">
-                    <div class="centerText">
-                    <label>Username:</label>
-                        <input type="text" placeholder="Username">
+                    <div class="main">
+                        <div class="leftText">
+                            <label for="user">Username:</label>
+                        </div>
+                        <div class="rightText">
+                            <input type="text" id="user" name="username" placeholder="Username">
+                        </div>
                     </div>
-                </div>
 
-                <div class="main">
-                    <div class="centerText">
-                    <label>Password:</label>
-                        <input type="password" placeholder="Password">
+                    <div class="main">
+                        <div class="leftText">
+                            <label for="pass">Password:</label>
+                        </div>
+                        <div class="rightText">
+                            <input type="password" id="pass" name="password" placeholder="Password">
+                        </div>
                     </div>
-                </div>
 
-                <div class="main">
-                    <div class="centerText">
-                    <label>E-mail:</label>
-                        <input type="email" placeholder="E-mail">
+                    <div class="main">
+                        <div class="leftText">
+                            <label for="mail">E-mail:</label>
+                        </div>
+                        <div class="rightText">
+                            <input type="email" id="mail" name="email" placeholder="E-mail">
+                        </div>
                     </div>
-                </div>
 
-                <div class="main">
-                    <div class="centerText">
-                    <label>Phone number:</label>
-                        <input type="number" min="0000000000" max="9999999999" placeholder="Phone number">
+                    <div class="main">
+                        <div class="leftText">
+                            <label for="nr">Phone number:</label>
+                        </div>
+                        <div class="rightText">
+                            <input type="number" id="nr" name="numar" min="0000000000" max="9999999999" placeholder="Phone number">
+                        </div>
                     </div>
-                </div>
 
-            </form>
+                    <div class="main">
+                        <input type="submit" value="Submit">
+                    </div>
+
+                </form>
+            </div>
         </div>
 
-    </body>
+        <div id="log">
+            <div id="main">
+                <div id="title">
+                    <h2>
+                        Log In
+                    </h2>
+                </div>
+                <div id="logBox">
+                    <form>
+                        <h3>Username:</h3>
+                        <input type="text" placeholder="Username">
+                        <h3>Password:</h3>
+                        <input type="password" placeholder="Password">
+                        <h3>Glad to have you back</h3>
+                        <input type="submit" value="Log In">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+
+        <div id="contact">
+            <h5 class="head">Contact</h5>
+            <a class="footerA" href="#">
+                <p>0764 646 646</p>
+            </a>
+            <a class="footerA" href="#">
+                <p>email@mail.congo</p>
+            </a>
+        </div>
+
+        <div id="help">
+            <h5 class="head">Help Center</h5>
+            <a class="footerA" href="#">
+                <p>FAQ</p>
+            </a>
+            <a class="footerA" href="#">
+                <p>Terms&Conditions</p>
+            </a>
+        </div>
+
+        <div id="account">
+            <h5 class="head">Account</h5>
+            <a class="footerA" href="SignUp.html">
+                <p>Create Account</p>
+            </a>
+            <a class="footerA" href="#">
+                <p>My Account</p>
+            </a>
+        </div>
+
+    </div>
+
+</body>
+
 </html>
