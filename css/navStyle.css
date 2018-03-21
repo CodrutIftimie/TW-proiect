@@ -4,7 +4,7 @@
 }
 
 #topMenu {
-    width: 100vw;
+    width: 100%;
     position: fixed;
     margin-left: -0.5em;
     height: 3.2em;
@@ -88,12 +88,10 @@
     color: rgb(199, 199, 199);
     font-family: 'Raleway', sans-serif;
     text-shadow: 1px 1px black;
-    /*background: linear-gradient(to bottom, #A5A5AF,rgba(0, 0, 255, 0));*/
     background: rgba(0,0,0,0);
     border-width: 0px;
     border-style: solid;
     border-top-width: 4px;
-    /*border-color: grey;*/
     padding: 1em .1em;
     margin-top: -0.5em;
     text-align: center;
@@ -104,6 +102,22 @@
     -webkit-transition: .5s all ease;
     transition: .5s all ease;
     cursor: pointer;
+}
+
+#logSignButt button {
+    background: white;
+    border: white;
+    outline: none;
+    cursor: pointer;
+    position: fixed;
+    margin-top: -0.25em;
+    right: 0;
+    width: 9%;
+    border-radius: 0 0 0 25px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-size: 2vh;
 }
 
 
@@ -172,18 +186,8 @@
     width: 100.85%;
     background: rgba(1, 1, 1, .5);
     color: whitesmoke;
-    /* padding-left: 4em; */
     text-align: center;
 }
-/* position: relative;
-    left:-.5em;
-    bottom: -1em;
-    width:99.1vw;
-    display: block;
-    background-color: rgba(0, 0, 0, .85);
-    min-height: 5vh;
-    margin: 0px;
-    padding: 0px; */
 
 #footer #contact,
 #footer #help,

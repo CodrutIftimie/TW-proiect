@@ -1,5 +1,5 @@
 body {
-    background-attachment: fixed;
+    background: #D5A235;
 }
 
 #body {
@@ -15,6 +15,8 @@ body {
 #navigation {
     display: inline-block;
     vertical-align: top;
+    border-left: .2em solid rgb(90,90,90);
+    padding-left: .1em;
     width: 20%;
 }
 
@@ -29,7 +31,8 @@ body {
 #user {
     margin: .1em;
     padding: .1em;
-    font-size: 1.3em;
+    font-size: 1em;
+    font-family: 'Raleway', sans-serif;
     border-bottom: thin solid black;
 }
 
@@ -75,22 +78,24 @@ body {
 }
 
 .break {
-    margin:.5em auto;
+    margin:.8em auto;
     width: 50%;
     border-bottom: .1em solid black;
 }
 
 .break p {
     padding: 0em;
+    font-size: 1.3em;
     margin: 0em;
 }
 
 .product {
-    display: block;
+    display: inline-block;
+    vertical-align: top;
     position: relative;
-    margin: .5em auto;
-    width: 90%;
-    height: 5em;
+    margin: .1em auto;
+    width: 40%;
+    min-height: 8em;
     border: 2px solid black;
     border-top: none;
     border-bottom: none;
@@ -117,6 +122,7 @@ body {
     font-size: 2em;
     margin: 0em;
     padding: 0em;
+    margin-left:3em;
 }
 
 .product .description {
@@ -155,6 +161,12 @@ body {
     width: 24%;
     margin: 0%;
 }
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+-webkit-appearance: none; 
+margin: 0; 
+}
 #save button{
     color: white;
     background: #2B2B2B;
@@ -162,18 +174,6 @@ body {
     height:3em;
     border: none;
     margin: 4em 0em 1em 0em;
-}
-
-#footer {
-    position: relative;
-    left:-.5em;
-    bottom: -1em;
-    width:99.1vw;
-    display: block;
-    background-color: rgba(0, 0, 0, .85);
-    min-height: 5vh;
-    margin: 0px 0px 0px 0px;
-    padding: 0px 0px 0px 0px;
 }
 
 #pageSelect {
@@ -231,6 +231,8 @@ body {
     }
 
     .product {
+        display: block;
+        width: auto;
         min-height: 5em;
         max-height: 15em;
         height: auto;
@@ -238,6 +240,10 @@ body {
 
     .product img {
         display: none;
+    }
+
+    .product .title {
+        margin: 0em;
     }
 
     .product .description {
