@@ -116,3 +116,63 @@ p {
     font-family: 'Lucida Sans';
     font-size: 1vw;
 }
+
+@media(max-width:920px) {
+    #navigation {
+        width: 90%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #navigation form {
+        width: 45%;
+        display: inline-block;
+        margin-left: 2.2%;
+        margin-right: 2%;
+        padding: 0em;
+        margin: .2em;
+    }
+
+    #navigation button {
+        height: 5em;
+        padding: 0em;
+    }
+    
+    #leftBox,
+    #rightBox {
+    display: block;
+    margin-top: 4em;
+    width: 90%;
+    text-align: center;
+    }
+
+    #leftBox input[type=text],
+    #leftBox input[type=email],
+    #leftBox input[type=number],
+    #leftBox textarea {
+        border: 1px solid black;
+        margin-top: 1em;
+        width: 100%;
+        padding: 12px;
+        border-radius: 4px;
+        resize: vertical;
+        font-family: 'Lucida Sans';
+        font-size: 10px;
+        opacity: 1;
+        outline: none;
+    }
+
+    #leftBox h3 {
+        width: 100%;
+        border-left: 2px solid black;
+        border-right: 2px solid black;
+    }
+
+    p {
+        width: 100%;
+        font-family: 'Lucida Sans';
+        font-size: 10px;
+    }
+
+}
