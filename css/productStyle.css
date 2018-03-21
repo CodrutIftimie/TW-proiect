@@ -1,52 +1,6 @@
-#topMenu {
 
-    width: 99vw;
-    position: relative;
-    margin-left: -8px;
-    height: 50px;
-    margin-top: -8px;
-    background: green;
-    background: linear-gradient(to bottom, green,rgba(0, 255, 0, 0));
-}
 
-#siteName {
 
-    position: absolute;
-    margin-top: -42px;
-    left:12.5%;
-}
-
-#siteNameText {
-
-    font-family: 'Permanent Marker', cursive;
-    font-size: 2.2em;
-    color: white;
-    text-shadow: 3px 3px black;
-}
-
-#navMenu {
-
-    right: 5%;
-    position: absolute;
-}
-
-#navMenu button {
-
-    color: white;
-    font-family: 'Raleway', sans-serif;
-    text-shadow: 1px 1px black;
-    background: linear-gradient(to bottom, green,rgba(0, 255, 0, 0));
-    border-width: 0px;
-    border-style: solid;
-    border-top-width: 4px;
-    border-color: limegreen;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    position:relative;
-}
 
 .main {
 
@@ -64,7 +18,7 @@
 }
 .mainInf{
     
-    min-height:94vw;
+    min-height:100vw;
     width: 75%;
     text-align: center;
     margin-top:auto;
@@ -76,9 +30,7 @@
 
 }
 body {
-    
-    background-repeat:no-repeat;
-    background-attachment:fixed;
+    background: #D5A235;
 }
 #topsTd {
 
@@ -93,11 +45,11 @@ body {
     
 }
 #font{
-    
+    min-height: 7vw;
     box-shadow: 1px 1px rgba(0,0,0,1);
     background-color: #565e3623;
-    height: 11%;
-    width:  90%;
+   
+    width:  100%;
     margin-top: -2em;
     margin-left:auto;
     margin-right:auto;
@@ -177,9 +129,10 @@ body {
     margin-top: 1em;
     text-align: center;
     width:auto;
+    
 }
 #alteInf{
-    height: 50%;
+    min-height:28vw;
     background-color: #5a613f0a;
     position: relative;
     font-size:25;
@@ -188,7 +141,8 @@ body {
     text-align:center;
 }
 #comentarii{
-    height:50%;
+    min-height:28vw;
+    
     background-color: #5a613f0a;
     padding-top:1px;
     padding-bottom: 25px;;
@@ -207,11 +161,12 @@ body {
 
 #addCom{
 
-    height:5%;
+    height:3em;
     width: 70%;
     display: inline-block;
     position:relative;
-    
+    margin-bottom: 2em;
+    margin-top: 2em;
 }
 #text{
    
@@ -231,8 +186,8 @@ body {
     margin-left: auto;
     margin-top: 1em;
     width:60%;
-
-    position: relative;
+    
+    position: absolute;
 }
 .buton{
     display: inline-block;
