@@ -1,7 +1,23 @@
 body {
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background: rgba(245, 245, 245, 0.877);
+    background: #D5A235;
+}
+
+#logSignButt button {
+    background: white;
+    border: white;
+    outline: none;
+    cursor: pointer;
+    position: fixed;
+    margin-top: -0.25em;
+    right: 0;
+    width: 9%;
+    border-radius: 0 0 0 25px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-size: 2vh;
 }
 
 #middle {
@@ -9,7 +25,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: -3.05em;
-    margin-top: -0.29em;
+    margin-top: 1vh;
     display: block;
     text-align: center;
     background: rgba(151, 146, 146, 0.8);
