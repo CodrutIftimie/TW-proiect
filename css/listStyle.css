@@ -115,7 +115,7 @@ h3 sup {
     font-size:.5em;
 }
 
-#items > ul > li button {
+#items > ul > li input[type=submit] {
     position: absolute;
     color: white;
     font-family: 'Raleway', sans-serif;
@@ -138,7 +138,7 @@ h3 sup {
     cursor: pointer;
 }
 
-#items > ul > li button:hover {
+#items > ul > li input[type=submit]:hover {
     width:12em;
 }
 
