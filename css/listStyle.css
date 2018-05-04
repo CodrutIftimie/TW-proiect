@@ -71,8 +71,8 @@ margin: 0;
 }
 
 #items > ul > li img {
-    width: auto;
     height: 10em;
+    max-width: 14em;
     padding-top: 1em;
     padding-bottom: 1em;
     border-bottom-style: solid;
