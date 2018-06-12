@@ -224,6 +224,21 @@ h3 sup {
     z-index: 0;
 }
 
+#otherIngredients, #otherPackage, #otherMeans {
+    height: 3em;
+    width: 80%;
+    background-color: #2B2B2B;
+    margin: .2em;
+    color: white;
+    padding: .25em .1em;
+    border: 0em;
+    border-radius: .5em;
+}
+
+#otherIngredients::placeholder, #otherPackage::placeholder, #otherMeans::placeholder {
+    color:white;
+}
+
 .price input {
     background-color: #2B2B2B;
     margin: .2em;
