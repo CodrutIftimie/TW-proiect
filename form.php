@@ -76,7 +76,7 @@ $conn = mysqli_connect($servername, $username, $password, $database);
                     <p>
                         <strong>Impachetare</strong>
                     </p>
-                    <select class="select" name="packaging">
+                    <select class="select" name="packages">
                         <option value="Plastic">Plastic</option>
                         <option value="Carton">Carton</option>
                         <option value="Metal">Metal</option>
@@ -90,8 +90,7 @@ $conn = mysqli_connect($servername, $username, $password, $database);
                 
                 <div class="imp">
                             <p>Nume produs:</p> <input type="text" class="txt" name="name_product" placeholder="Nume"><br>
-                            <p>Cod de bare:</p> <input type="text" class="txt" name="code" placeholder="123456"><br> 
-                            <p>Depozitare:</p> <input type="text" class="txt" name="packages" placeholder="Loc"><br> 
+                            <p>Cod de bare:</p> <input type="text" class="txt" name="code" placeholder="123456"><br>  
                             <p>Gramaj:</p> <input type="text" class="txt" name="grams_100" placeholder="Valoare cantitatilor din produs"><br> 
                             <p>Instructiuni de preparare:</p><input type="text" class="txt" name="instructions" placeholder="Modul in care se pregateste preparatul"><br> 
                             <p>Transport:</p> <input type="text" class="txt" name="transport" placeholder="Modul in care produsul sa fie transportat"><br> 
@@ -107,7 +106,7 @@ $conn = mysqli_connect($servername, $username, $password, $database);
                 </div>       
                 <div class="categ1">
                     <p>
-                        <strong>Categorie</strong>
+                        <strong>Ingrediente</strong>
                     </p>
                     
                         <input type="checkbox" name="categories1" value="Tomate">Tomate<br>

@@ -10,6 +10,8 @@ if(!isset($_GET["code"]))
     header("Location: notfound.php");
 else
  $code=$_GET["code"];
+
+ setcookie("loggedUser","Leonard");
 ?>
 
 <html>
@@ -134,7 +136,7 @@ else
                                  $result = mysqli_query($conn, $sql);
                                      while( $row =  mysqli_fetch_row($result)) 
                                      if($row[0] != "")
-                                         echo '<img src='.$row[0].' height=200px width=200px>';
+                                         echo '<img src='.$row[0].' height=150px width=150px>';
                              ?>       
                             </div>
                         </div>
@@ -145,7 +147,7 @@ else
                                  $result = mysqli_query($conn, $sql);
                                      while( $row =  mysqli_fetch_row($result)) 
                                      if($row[0] != "")
-                                         echo '<img src='.$row[0].' height=200px width=200px>';
+                                         echo '<img src='.$row[0].' height=150px width=150px>';
                              ?>     
                            </div>
                         </div>
@@ -249,9 +251,12 @@ else
                         <ul style="list-style-type:none">
                         <?php
                             $sql = "SELECT com FROM comments where id_produs=".$code.";";
+                     
                             $result = mysqli_query($conn, $sql);
+                          
                                 while( $row =  mysqli_fetch_row($result)) 
-                                    echo "<b>Nume persoana  :  </b>". $row[0] . "<br>";
+                            
+                                    echo "<b> ".$_COOKIE["loggedUser"]." :  </b>". $row[0] . "<br>";
                                             
                         ?>
                         </ul>
@@ -288,4 +293,4 @@ else
         
             </div>
     </body>
-</htmt>
+</html>
