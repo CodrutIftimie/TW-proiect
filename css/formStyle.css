@@ -23,7 +23,7 @@ body {
     margin-bottom: 2em;
     font-family: 'Abril Fatface', cursive;
     font-size: 55;
-    
+  
 }
 .categ1{
     display: inline-block;
@@ -31,8 +31,7 @@ body {
     margin-left:auto;
     height: 4em;
     text-align: center;
-    margin-bottom: 6em;
-    
+    margin-bottom: 6em; 
 
 }
 .categ2{
@@ -42,7 +41,6 @@ body {
     height: 4em;
     text-align: center;
     margin-bottom: 3em;
-    
 
 }
 .select{
@@ -52,29 +50,30 @@ body {
     margin-left:7em;
     margin-right: 7em;
     margin-bottom: 3em;
-    
+
 }
 #produs {
     text-align: center;
+
 }
 .input{
-    
-    
     text-align:center
-   
+
 }
 .imp{
     
-    margin-top: 3em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    margin-right: auto;
     margin-left:auto;
     text-align: center;
-   
-    
-    
+    font-size:1.2em;  
+
 }
 .txt{
     margin-bottom: 1em;
     height: 2em;
-    width: 50em;
+    width: 50%;
     margin-left:2em;
+    
 }

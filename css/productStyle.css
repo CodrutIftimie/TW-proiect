@@ -72,7 +72,6 @@ body {
     display:inline-block;
     height: 30%;
     font-family: 'Libre Franklin', sans-serif;
-    
     text-align:top;
     margin-left:auto;
     margin-right:auto;
@@ -117,7 +116,7 @@ body {
 .alt{
 
     display: inline-block;
-    text-align:center;
+    
 }
 .jos{
    
@@ -201,11 +200,28 @@ body {
     padding-left:3em;
     position: relative;
     text-align: left;
-    font-size :20;
+    font-size :22;
 }
 .lista1{
     padding-top:1em;
     padding-left:0.8em;
     text-align: left;
     font-size :17;
+}
+#lin{
+    display: inline-block;
+    
+    position: relative;
+    
+}
+.inp{
+
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.6);
+    padding-top:5px;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    padding-bottom: 5px;;
+    width: 93.22%;
+    height: 100%;
 }
