@@ -61,12 +61,17 @@ class LinkBuilder {
     }
 
     public function getArrayValues($argument) {
-        $values = array();
+        $thisArgument;
+        if($argument == 1) {
+            $thisArgument="ig%5B%5D";
+        } else if ($argument == 2) $thisArgument="pk%5B%5D";
+        else $thisArgument="mc%5B%5D";
+        $valuess = array();
         for($index=0; $index < $this->values; $index++)
-            if(strpos(($argument . "["),$this->array[$index]->getArgument()) == 0) {
-                $values[] = $this->array[$index]->getValue();
+            if($thisArgument == $this->array[$index]->getArgument() && $this->array[$index]->getValue()!="") {
+                $valuess[] = $this->array[$index]->getValue();
             }
-        return $values;
+        return $valuess;
     }
 
     public function modifyArgument($argument,$newValue) {
