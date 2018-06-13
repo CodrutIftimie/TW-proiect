@@ -96,10 +96,28 @@
                       </form>';
             
                 if($rank > 0 && $visiting == 0)
-                    echo '<form action="#">';
-                else echo '<form action="#" style="display:none">';
+                    echo '<form action="/pending.php">';
+                else echo '<form action="/pending.php" style="display:none">';
                 echo "<button>Pending products</button>";
                 echo "</form>";
+
+                if($visiting == 0)
+                    echo '<form action="exportAsPDF.php">';
+                else echo '<form action="exportAsPDF.php" style="display:none">';
+                echo '<button>Stock Information</button>
+                      </form>';
+
+                if($visiting == 0)
+                    echo '<form action="exportAsCSV.php">';
+                else echo '<form action="exportAsCSV.php" style="display:none">';
+                echo '<button>Export CSV</button>
+                    </form>';
+
+                if($visiting == 0)
+                    echo '<form action="exportAsXML.php">';
+                else echo '<form action="exportAsXML.php" style="display:none">';
+                echo '<button>Export XML</button>
+                    </form>';
             
                 if($visiting == 0)
                     echo '<form action="#editprofile">';
@@ -159,6 +177,19 @@
             <?php
 
             if($visiting == 0)
+                echo '<div class="break" id="import">';
+            else echo '<div class="break" id="import" style="display:none">';
+                echo '<p>Import CSV | XML</p>
+                      </div>';
+
+            if($visiting == 0 && $rank > 0) {
+                echo '<form action="import.php" method="post" enctype="multipart/form-data">
+                    <input type="file" name="file" value="upload">
+                    <input type="submit" value="Import">
+                     </form>';
+            }
+
+            if($visiting == 0)
                 echo '<div class="break" id="editprofile">';
             else echo '<div class="break" id="editprofile" style="display:none">';
             echo '<p>Edit Profile</p>
@@ -166,30 +197,30 @@
 
             if($visiting == 0)
                 echo '<form id="profileInfo" action="updateUser.php" method="post">';
-            else echo '<form id="profileInfo" style="display:none" action="updateUser.php" method="post">';
+            else echo '<form id="profileInfo" style="display:none" action="profile.php" method="post">';
             ?>
                 <div id="firstName" class="profileDiv">
                 <label for="fnameinput">First Name</label>
-                    <?php echo '<input id="fnameinput" type="text" placeholder="' .$foreName. '">'; ?>
+                    <?php echo '<input name="firstname" id="fnameinput" type="text" placeholder="' .$foreName. '">'; ?>
                 </div>
                 <div id="lastName" class="profileDiv">
                     <label for="lnameinput">Last Name</label>
-                    <?php echo '<input id="lnameinput" type="text" placeholder="' .$surName. '">'; ?>
+                    <?php echo '<input name="lastname" id="lnameinput" type="text" placeholder="' .$surName. '">'; ?>
                 </div>
                 <div id="email" class="profileDiv">
                     <label for="emailinput">Email</label>
-                    <?php echo '<input id="emailinput" type="email" placeholder="' .$email. '">'; ?>
+                    <?php echo '<input name="email" id="emailinput" type="email" placeholder="' .$email. '">'; ?>
                 </div>
                 <div id="phone" class="profileDiv">
                     <label for="phoneinput">Phone number</label>
-                    <?php echo '<input id="phoneinput" type="number" placeholder="0' .$phone. '">'; ?>
+                    <?php echo '<input name="phonenr" id="phoneinput" type="number" placeholder="0' .$phone. '">'; ?>
                 </div>
                 <div id="password" class="profileDiv">
-                    <label for="password1">Password&nbsp;</label>
-                    <input id="password1" class="profileDiv" type="password" />
+                    <label for="password1">New Password&nbsp;</label>
+                    <input name="password" id="password1" class="profileDiv" type="password" />
                     <br>
                     <label for="cpassword">Confirm Password</label>
-                    <input id="cpassword" class="profileDiv" type="password" />
+                    <input name="passwordc" id="cpassword" class="profileDiv" type="password" />
                 </div>
                 <input id="save" type="submit" value="Save changes" />
             </form>

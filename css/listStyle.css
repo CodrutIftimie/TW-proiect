@@ -138,6 +138,23 @@ h3 sup {
     cursor: pointer;
 }
 
+#filterSubmit {
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    text-shadow: 1px 1px black;
+    background: #2B2B2B;
+    border-width: 1px;
+    width: 10em;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2em;
+    margin-top: .1em;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: .7em;
+    cursor: pointer;
+}
+
 #items > ul > li input[type=submit]:hover {
     width:12em;
 }

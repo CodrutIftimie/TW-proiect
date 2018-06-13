@@ -3,6 +3,8 @@
     include "database.php";
     include "Classes.php";
 
+    setcookie("username","MisterOne");
+
     $linkBuilder = new LinkBuilder();
     $parameters = $_SERVER['QUERY_STRING'];
     $paramArray = explode("&",$parameters);
@@ -14,42 +16,39 @@
 
     $ingredients = 0;
     $sqlIngredients = "";
-    if(sizeof($linkBuilder->getArrayValues("i"))) {
-        foreach($linkBuilder->getArrayValues("i") as $x) {
-            if($ingredients > 0) {
-                $sqlIngredients = $sqlIngredients . " OR ingredients LIKE '%" . getFullValue($x) . "%'";
-            }
-            else $sqlIngredients = " AND (ingredients LIKE '%" . getFullValue($x) . "%'";
-            $ingredients++;
+    foreach($linkBuilder->getArrayValues(1) as $x) {
+        if($ingredients > 0) {
+            $sqlIngredients = $sqlIngredients . " OR ingredients LIKE '%" .getFullValue($x). "%'";
         }
-        $sqlIngredients = $sqlIngredients . ')';
+        else $sqlIngredients = " AND (ingredients LIKE '%" . getFullValue($x) . "%'";
+        $ingredients++;
     }
+    $sqlIngredients = ($sqlIngredients!=""?$sqlIngredients.')':"");
+
+    $otherPackage = isset($_GET["otherPackage"])?$_GET["otherPackage"]:"";
 
     $packages = 0;
-    $sqlPackages = "";
-    if(sizeof($linkBuilder->getArrayValues("p"))) {
-        foreach($linkBuilder->getArrayValues("p") as $x) {
-            if($packages > 0) {
-                $sqlPackages = $sqlPackages . " OR packages LIKE '%" . getFullValue($x) . "%'";
-            }
-            else $sqlPackages = " AND (packages LIKE '%" . getFullValue($x) . "%'";
-            $packages++;
+    $sqlPackages = $otherPackage!=""?(" AND (packages LIKE '%".$otherPackage."%'"):"";
+    $packages = $sqlPackages!=""?1:0;
+    foreach($linkBuilder->getArrayValues(2) as $y) {
+        if($packages > 0) {
+            $sqlPackages = $sqlPackages . " OR packages LIKE '%" . getFullValue($y) . "%'";
         }
-        $sqlPackages = $sqlPackages . ')';
+        else $sqlPackages = " AND (packages LIKE '%" . getFullValue($y) . "%'";
+        $packages++;
     }
+    $sqlPackages = ($sqlPackages!=""?$sqlPackages.')':"");
 
     $MoC = 0;
     $sqlMoC = "";
-    if(sizeof($linkBuilder->getArrayValues("m"))) {
-        foreach($linkBuilder->getArrayValues("m") as $x) {
-            if($MoC > 0) {
-                $sqlMoC = $sqlMoC . " OR moc LIKE '%" . getFullValue($x) . "%'";
-            }
-            else $sqlMoC = " AND (moc LIKE '%" . getFullValue($x) . "%'";
-            $MoC++;
+    foreach($linkBuilder->getArrayValues(3) as $z) {
+        if($MoC > 0) {
+            $sqlMoC = $sqlMoC . " OR moc LIKE '%" . getFullValue($z) . "%'";
         }
-        $sqlMoC = $sqlMoC . ')';
+        else $sqlMoC = " AND (moc LIKE '%" . getFullValue($z) . "%'";
+        $MoC++;
     }
+    $sqlMoC = ($sqlMoC!=""?$sqlMoC.')':"");
 
     $page  = $linkBuilder->getArgumentValue("page")==""?1:$linkBuilder->getArgumentValue("page");
     $title = $linkBuilder->getArgumentValue("search");
@@ -176,72 +175,70 @@
             <form action="/list.php" method="get">
                 <div class="price">
                     <h5>Price</h5>
-                    <input name="pmin" type="number" placeholder="min">
-                    <input name="pmax" type="number" placeholder="max">
+                    <input name="pmin" type="number" placeholder="min" <?php if($minPrice > 0) echo 'value='.$minPrice;?>>
+                    <input name="pmax" type="number" placeholder="max" <?php if($maxPrice < 999999) echo 'value='.$maxPrice;?>>
                 </div>
                 <div>
                     <h5>Ingredients</h5>
-                    <input type="checkbox" name="i[]" value="h2o" id="water">
-                    <label for="water">Water</label>
                     <br>
-                    <input type="checkbox" name="i[]" value="tmt" id="tomatoes">
+                    <input type="checkbox" name="ig[]" value="tmt" id="tomatoes" <?php if(in_array("tmt",$linkBuilder->getArrayValues(1))) echo 'checked="checked"';?>>
                     <label for="tomatoes">Tomatoes</label>
                     <br>
-                    <input type="checkbox" name="i[]" value="veg" id="vegetables">
+                    <input type="checkbox" name="ig[]" value="veg" id="vegetables" <?php if(in_array("veg",$linkBuilder->getArrayValues(1))) echo 'checked="checked"';?>>
                     <label for="vegetables">Vegetables</label>
                     <br>
-                    <input type="checkbox" name="i[]" value="meat" id="meat">
+                    <input type="checkbox" name="ig[]" value="meat" id="meat" <?php if(in_array("meat",$linkBuilder->getArrayValues(1))) echo 'checked="checked"';?>>
                     <label for="meat">Meat</label>
                     <br>
-                    <input type="checkbox" name="i[]" value="fish" id="fish">
+                    <input type="checkbox" name="ig[]" value="fish" id="fish" <?php if(in_array("fish",$linkBuilder->getArrayValues(1))) echo 'checked="checked"';?>>
                     <label for="fish">Fish</label>
                     <br>
-                    <input type="checkbox" name="i[]" value="chs" id="cheese">
+                    <input type="checkbox" name="ig[]" value="chs" id="cheese" <?php if(in_array("chs",$linkBuilder->getArrayValues(1))) echo 'checked="checked"';?>>
                     <label for="cheese">Cheese</label>
                     <br>
-                    <input type="checkbox" name="i[]" value="frt" id="fruits">
+                    <input type="checkbox" name="ig[]" value="frt" id="fruits" <?php if(in_array("frt",$linkBuilder->getArrayValues(1))) echo 'checked="checked"';?>>
                     <label for="fruits">Fruits</label>
                     <br>
                 </div>
                 <div>
                     <h5>Package</h5>
-                    <input type="checkbox" name="p[]" value="cbb" id="cardboard">
+                    <input type="checkbox" name="pk[]" value="cbb" id="cardboard" <?php if(in_array("cbb",$linkBuilder->getArrayValues(2))) echo 'checked="checked"';?>>
                     <label for="cardboard">Cardboard Box</label>
                     <br>
-                    <input type="checkbox" name="p[]" value="mtb" id="metal">
+                    <input type="checkbox" name="pk[]" value="mtb" id="metal" <?php if(in_array("mtb",$linkBuilder->getArrayValues(2))) echo 'checked="checked"';?>>
                     <label for="metal">Metal Box</label>
                     <br>
-                    <input type="checkbox" name="p[]" value="pb" id="plastic">
+                    <input type="checkbox" name="pk[]" value="pb" id="plastic" <?php if(in_array("pb",$linkBuilder->getArrayValues(2))) echo 'checked="checked"';?>>
                     <label for="plastic">Plastic Box</label>
                     <br>
-                    <input type="checkbox" name="p[]" value="jar" id="jar">
+                    <input type="checkbox" name="pk[]" value="jar" id="jar" <?php if(in_array("jar",$linkBuilder->getArrayValues(2))) echo 'checked="checked"';?>>
                     <label for="jar">Jar</label>
                     <br>
-                    <input type="checkbox" name="p[]" value="btl" id="bottle">
+                    <input type="checkbox" name="pk[]" value="btl" id="bottle" <?php if(in_array("btl",$linkBuilder->getArrayValues(2))) echo 'checked="checked"';?>>
                     <label for="bottle">Bottle</label>
                     <br>
-                    <input type="checkbox" name="p[]" value="csr" id="casserole">
+                    <input type="checkbox" name="pk[]" value="csr" id="casserole" <?php if(in_array("csr",$linkBuilder->getArrayValues(2))) echo 'checked="checked"';?>>
                     <label for="casserole">Casserole</label>
                     <br>
-                    <input type="checkbox" name="p[]" value="env" id="envelope">
+                    <input type="checkbox" name="pk[]" value="env" id="envelope" <?php if(in_array("env",$linkBuilder->getArrayValues(2))) echo 'checked="checked"';?>>
                     <label for="envelope">Envelope</label>
                     <br>
-                    <input type="text" id="otherPackage" placeholder="Type another package type">
+                    <input name="otherPackage" type="text" id="otherPackage" placeholder="Type another package type" <?php if($otherPackage!="") echo 'value='.$otherPackage; ?>>
                     <br>
                 </div>
                 <div>
                     <h5>Means of cooking</h5>
-                    <input type="checkbox" name="m[]" value="mcv" id="microwave">
+                    <input type="checkbox" name="mc[]" value="mcv" id="microwave" <?php if(in_array("mcv",$linkBuilder->getArrayValues(3))) echo 'checked="checked"';?>>
                     <label for="microwave">Microwave</label>
                     <br>
-                    <input type="checkbox" name="m[]" value="gsc" id="gascooker">
+                    <input type="checkbox" name="mc[]" value="gsc" id="gascooker" <?php if(in_array("gsc",$linkBuilder->getArrayValues(3))) echo 'checked="checked"';?>>
                     <label for="gascooker">Gas Cooker</label>
                     <br>
-                    <input type="checkbox" name="m[]" value="bld" id="blender">
+                    <input type="checkbox" name="mc[]" value="bld" id="blender" <?php if(in_array("bld",$linkBuilder->getArrayValues(3))) echo 'checked="checked"';?>>
                     <label for="blender">Blender</label>
-                    <br>
+                    <br><br>
+                    <input type="submit" value="Set" id="filterSubmit" />
                 </div>
-                <input type="submit" value="Set" />
             </form>
         </div>
         <div id="items">
