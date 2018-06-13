@@ -1,28 +1,17 @@
 <?php
-
 $servername = "localhost";
 $username = "root";
 $password = "";
 $database = "website";
 $conn = mysqli_connect($servername, $username, $password, $database);
 ?>
-
-
-<htmt>
-
+<html>
     <head>
-        
-
-
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/formStyle.css">
         <link href="css/navStyle.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
-
-
-
     </head>
-
     <body>
         <div id="top">
             <div id="topMenu">
@@ -73,7 +62,7 @@ $conn = mysqli_connect($servername, $username, $password, $database);
                      <p>
                          <strong>Number of portions</strong>
                      </p>
-                     <select class="select" name="servings">
+                     <select class="select" name="in_stock">
                        <option value="1">1</option>
                        <option value="2">2</option>
                        <option value="3">3</option>
@@ -100,19 +89,17 @@ $conn = mysqli_connect($servername, $username, $password, $database);
                 </div>
                 
                 <div class="imp">
-                            <p>Nume produs:</p> <input type="text" class="txt" name="name_product"><br>
-                            <p>Cod de bare:</p> <input type="text" class="txt" name="code"><br>
-                            <p>Ingrediente:</p> <input type="text" class="txt" name="ingredients"><br> 
-                            <p>Depozitare:</p> <input type="text" class="txt" name="packages"><br> 
-                            <p>Gramaj:</p> <input type="text" class="txt" name="grams_100"><br> 
-                            <p>Instructiuni de preparare:</p><input type="text" class="txt" name="instructions"><br> 
-                            <p>Transport:</p> <input type="text" class="txt" name="transport"><br> 
-                            <p>Alergii,substante daunatoare si riscuri:</p> <input type="text" class="txt" name="risks"><br> 
-                            <p>Adresa producator:</p> <input type="text" class="txt" name="manufacturing_places"><br>
-                            <p>Termen de valabilitate:</p> <input type="text" class="txt" name="valability"><br>
+                            <p>Nume produs:</p> <input type="text" class="txt" name="name_product" placeholder="Nume"><br>
+                            <p>Cod de bare:</p> <input type="text" class="txt" name="code" placeholder="123456"><br> 
+                            <p>Depozitare:</p> <input type="text" class="txt" name="packages" placeholder="Loc"><br> 
+                            <p>Gramaj:</p> <input type="text" class="txt" name="grams_100" placeholder="Valoare cantitatilor din produs"><br> 
+                            <p>Instructiuni de preparare:</p><input type="text" class="txt" name="instructions" placeholder="Modul in care se pregateste preparatul"><br> 
+                            <p>Transport:</p> <input type="text" class="txt" name="transport" placeholder="Modul in care produsul sa fie transportat"><br> 
+                            <p>Alergii,substante daunatoare si riscuri:</p> <input type="text" class="txt" name="risks" ><br> 
+                            <p>Adresa producator:</p> <input type="text" class="txt" name="manufacturing_places" placeholder="Locul unde s-a fabricat produsul"><br>
+                            <p>Termen de valabilitate:</p> <input type="text" class="txt" name="valability" placeholder="Expira la ..."><br>
                             <p>Tara unde se vinde:</p> <input type="text" class="txt" name="country"><br>
                             <p>Valoare ( Pret ):</p> <input type="text" class="txt" name="price"><br>
-                            <p>Numar portii:</p> <input type="text" class="txt" name="in_stock"><br>
                             <p>Imagine produs (TIP URL):</p> <input type="text" class="txt" name="image1"><br>
                             <p>Poza semnificativa 1 (TIP URL - Adresa imaginii):</p> <input type="text" class="txt" name="image2"><br>
                             <p>Poza semnificativa 2 (TIP URL - Adresa imaginii):</p> <input type="text" class="txt" name="image3"><br>
@@ -163,4 +150,4 @@ $conn = mysqli_connect($servername, $username, $password, $database);
         
             </div>
     </body>
-</htmt>
+</html>
