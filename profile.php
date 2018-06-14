@@ -11,7 +11,7 @@
         $result = mysqli_query($connection, $sql);
         $row = mysqli_fetch_row($result);
         if($row[0] == 1) {
-            $userName = $_COOKIE["loggedUser"];
+            $userName = $_GET["username"];
             $foreName = $row[1];
             $surName = $row[2];
             $email = $row[3];
@@ -19,7 +19,7 @@
             $rank = $row[5];
             $visiting = 1;
         }
-        else header("Location: /userNotFound.php");
+        else header("Location: /SignUp.php");
     }
     else {
         $sql = "SELECT user_fname, user_sname, user_email, user_phonenr, user_rank FROM users WHERE user_username LIKE BINARY '". $_COOKIE["loggedUser"] . "';";

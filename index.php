@@ -10,6 +10,7 @@ include "database.php";
 <head>
     <title>CanF (Canned Food Manager)</title>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="images/icon.ico" rel="shortcut icon">
     <link rel="stylesheet" href="css/topStyle.css">
     <link href="css/navStyle.css" rel="stylesheet">

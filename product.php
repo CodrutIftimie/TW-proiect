@@ -292,25 +292,28 @@ else
                 <div class="lista1">
                         <ul style="list-style-type:none">
                         <?php
-                            $sql = "SELECT com FROM comments where id_produs=".$code.";";
+                            $sql = "SELECT user_p,com FROM comments where id_produs=".$code.";";
                      
                             $result = mysqli_query($connection, $sql);
                           
                                 while( $row =  mysqli_fetch_row($result)) 
                             
-                                    echo "<b> ".$_COOKIE["loggedUser"]." :  </b>". $row[0] . "<br>";
+                                    echo "<b> ".$row[0]." :  </b>". $row[1] . "<br>";
                                             
                         ?>
                         </ul>
                     </div>
             </div>
-            <div class="jos1" id="addCom">
-                <form action="/comentariu.php" method="post">
-                      <input name="name" id="lin" class="inp" placeholder="Add a comment " />
-                      <input name="pagina" value="<?php echo $code; ?>" style="display:none" />
-                      <input type="submit" id="lin" class="buton" value="SEND" />
-                </form>
-            </div>
+            <?php if(isset($_COOKIE["loggedUser"])) {
+                echo '<div class="jos1" id="addCom">
+                    <form action="/comentariu.php" method="post">
+                        <input name="name" id="lin" class="inp" placeholder="Add a comment " />
+                        <input name="pagina" value="' .$code. '" style="display:none" />
+                        <input type="submit" id="lin" class="buton" value="SEND" />
+                    </form>
+                </div>';
+            }
+            ?>
         </div>
         <div id="footer">
 

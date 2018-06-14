@@ -17,7 +17,7 @@ body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     padding-top: 7px;
     padding-bottom: 7px;
-    font-size: 2vh;
+    font-size: 2em;
 }
 
 #middle {
@@ -42,6 +42,7 @@ body {
 }
 
 .mostRecents {
+    vertical-align: top;
     display: inline-block;
     border-width: thin;
     border-left-width: 0.5em;
@@ -91,7 +92,7 @@ body {
 
 #recentsDescription {
     font-family: 'Lobster', cursive;
-    font-size: 3vw;
+    font-size: 2em;
     text-align: center;
     color: whitesmoke;
     text-shadow: 3px 3px black;
@@ -132,7 +133,7 @@ body {
 
 .recentsText {
     font-family: 'Raleway', sans-serif;
-    font-size: 1vw;
+    font-size: 1em;
     color: white;
     text-shadow: 2px 2px black;
 }
@@ -217,4 +218,25 @@ body {
 #i3:checked ~ .nav #dot3 {
     background-color: white;
     border: 1px solid rgba(88, 88, 88, .6);
+}
+
+@media (max-width:900px) {
+    .mostRecents {
+        vertical-align: top;
+        display: inline-block;
+        border-width: thin;
+        border-left-width: 0.5em;
+        /*border-style: solid;*/
+        border-color: rgba(0, 0, 255, 0.5);
+        border-radius: 3%;
+        background: rgba(1, 1, 1, .5);
+        /*background: rgba(0, 0, 255, 0.25);*/
+        width: 70%;
+        min-height: 10em;
+        max-height: 20emvh;
+        margin-left: 5%;
+        margin-right: 5%;
+        overflow-y: auto;
+        margin-bottom: 1em;
+    }
 }

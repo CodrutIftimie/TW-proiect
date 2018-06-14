@@ -6,7 +6,7 @@ $url = isset($_POST["code"])?$_POST["code"]:"";
 if(isset($_POST["view"]))
     header("Location: product.php?code=".$url);
 if(isset($_POST["approve"])) {
-    $sql = "UPDATE products SET pending=0, creator='".$_COOKIE["loggedUser"]."' WHERE code=".$url;
+    $sql = "UPDATE products SET pending=0 WHERE code=".$url;
     mysqli_query($connection,$sql);
 }
 if(isset($_POST["deny"])) {

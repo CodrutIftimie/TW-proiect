@@ -19,11 +19,11 @@ if(isset($_POST["categories6"]))
 
 
 
-$sql = 'INSERT INTO products (name_product,code,product_url,ingredients,packages,grams_100,instructions,transport,risks,manufacturing_places,valability,price,image1,image2,image3,country,in_stock)VALUES (\'' .$_POST["name_product"]. '\',' .$_POST["code"]. ',
+$sql = 'INSERT INTO products (name_product,code,product_url,ingredients,packages,grams_100,instructions,transport,risks,manufacturing_places,valability,price,image1,image2,image3,country,in_stock,creator)VALUES (\'' .$_POST["name_product"]. '\',' .$_POST["code"]. ',
 \'/product.php?code='.$_POST["code"].'\',\'
 ' .implode(";",$ingrediente).'\',\'
 '.$_POST["packages"].'\',\''.$_POST["grams_100"].'\',\''.$_POST["instructions"].'\',\''.$_POST["transport"].'\',\''.$_POST["risks"].'\',\'
-'.$_POST["manufacturing_places"].'\',\''.$_POST["valability"].'\','.$_POST["price"].',\''.$_POST["image1"].'\',\''.$_POST["image2"].'\',\''.$_POST["image3"].'\',\''.$_POST["country"].'\',\''.$_POST["in_stock"].'\')';
+'.$_POST["manufacturing_places"].'\',\''.$_POST["valability"].'\','.$_POST["price"].',\''.$_POST["image1"].'\',\''.$_POST["image2"].'\',\''.$_POST["image3"].'\',\''.$_POST["country"].'\',\''.$_POST["in_stock"].'\',\'' .$_COOKIE["loggedUser"]. '\')';
 
 $result = mysqli_query($connection, $sql);
 header("Location: /index.php");
