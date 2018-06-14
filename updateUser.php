@@ -1,9 +1,9 @@
 <?php
-if ( ! session_id() ) @ session_start();
+session_start();
 include "database.php";
 
-if(!isset($_COOKIE["username"]))
-    header("Location: /SignUp.html");
+if(!isset($_COOKIE["loggedUser"]))
+    header("Location: /SignUp.php");
 
 $values=0;
 
@@ -32,28 +32,29 @@ if($newLastName!="")
     else $sql = $sql . ",user_sname='" . $newLastName . "'";
 if($newEmail!="")
     if($fValSet==false) {
-        $sql = $sql . " user_email='" . $newEmail . "';";
+        $sql = $sql . " user_email='" . $newEmail . "'";
         $fValSet = true;
     }
-    else $sql = $sql . ",user_email='" . $newEmail . "';";
+    else $sql = $sql . ",user_email='" . $newEmail . "'";
 if($newPhoneNumber!="") 
     if($fValSet==false) {
-        $sql = $sql . " user_phonenr='" . $newPhoneNumber . "';";
+        $sql = $sql . " user_phonenr=" . $newPhoneNumber . "";
         $fValSet = true;
     }
-    else $sql = $sql . ",user_phonenr='" . $newPhoneNumber . "';";
+    else $sql = $sql . ",user_phonenr=" . $newPhoneNumber . "";
 
 if($newPassword!="") 
     if($fValSet==false) {
-        $sql = $sql . " user_passw='" . $newPassword . "';";
+        $sql = $sql . " user_passw='" . $newPassword . "'";
         $fValSet = true;
     }
-    else $sql = $sql . ",user_passw='" . $newPassword . "';";
+    else $sql = $sql . ",user_passw='" . $newPassword . "'";
 
 if($fValSet == true) {
     if(strcmp($newPassword,$passwordConfirm)!=0)
         header("Location: /profile.php?error=pnm");
     $result = mysqli_query($connection, $sql);
+    echo mysqli_error($connection);
     if($result) {
         header("Location: /profile.php?error=no");
     }

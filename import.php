@@ -1,4 +1,5 @@
 <?php
+@session_start();
 $currentDir = getcwd();
 $uploadDirectory = "/uploads/";
 if($_SERVER["REQUEST_METHOD"] == "POST") {

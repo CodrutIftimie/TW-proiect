@@ -1,13 +1,10 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "website";
-$conn = mysqli_connect($servername, $username, $password, $database);
+
+include "database.php";
 $fisier = 'fisier.csv';
 $fp = fopen($fisier,'w');
 $sql = "SELECT * from products";
-$result = mysqli_query($conn, $sql);
+$result = mysqli_query($connection, $sql);
 while( $row =  mysqli_fetch_row($result)) 
 {
     $date = array($row[0],$row[1],$row[2],$row[3],$row[4],$row[5],$row[6],$row[7],$row[8],$row[9],

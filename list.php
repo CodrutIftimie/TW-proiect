@@ -1,9 +1,8 @@
 <?php
-    if ( ! session_id() ) @ session_start();
+    session_start();
     include "database.php";
     include "Classes.php";
-
-    setcookie("username","MisterOne");
+    include "functions.php";
 
     $linkBuilder = new LinkBuilder();
     $parameters = $_SERVER['QUERY_STRING'];
@@ -99,6 +98,7 @@
     String.prototype.replaceAt = function(index, replacement) {
         return this.substr(0, index) + replacement + this.substr(index + replacement.length);
     }
+
     function search(e){
         if(e.keyCode === 13){
             e.preventDefault();
@@ -134,12 +134,23 @@
     <div id="top">
         <div id="topMenu">
             <div id="siteName">
-                <a href="index.html">
+            <?php
+                if(loggedin())
+                    echo '<a href="loggedIndex.php">
                     <img id="logo" src="images/logo.png">
-                    <p id="siteNameText">
-                        CanF
-                    </p>
-                </a>
+                        <p id="siteNameText">
+                            CanF
+                        </p>
+                    </a>';
+                else
+                    echo '<a href="index.php">
+                        <img id="logo" src="images/logo.png">
+                            <p id="siteNameText">
+                                CanF
+                            </p>
+                        </a>';
+                
+            ?>
             </div>
         </div>
         <form id="search">
@@ -153,21 +164,45 @@
         </form>
         <div id="navMenu">
             <div id="menubutton"></div>
-            <a href="index.html">
-                <button type="button">Home</button>
-            </a>
-            <a class="active" href="list.html">
+                <?php
+                if(loggedin())
+                    echo '<a href="loggedIndex.php">
+                    <button type="button">Home</button>
+                    </a>';
+                else
+                    echo '<a href="index.php">
+                    <button type="button">Home</button>
+                    </a>';
+                
+                ?>
+            <a class="active" href="list.php">
                 <button type="button">Products</button>
             </a>
-            <a href="contact.html">
+            <a href="contact.php">
                 <button type="button">Contact</button>
             </a>
+            <?php
+            if(loggedin()){
+                echo '
+                <a href="profile.php">
+                    <button type="button">Profile</button>
+                </a>';
+            }
+            ?>
         </div>
     </div>
     <div id="logSignButt">
-        <a href="SignUp.html">
-            <button type="button">LogIn/SignUp</button>
-        </a>
+    <?php
+        if(loggedin()){
+            echo '<a href="userLogOut.php">
+                <button type="button">Log out</button>
+                </a>';
+        } else {
+            echo '<a href="SignUp.php">
+                <button type="button">LogIn/SignUp</button>
+                </a>';
+        }
+    ?>
     </div>
     <div id="body">
         <div id="filters">
@@ -254,18 +289,22 @@
             <ul>
                 <?php
                     $found = 0;
-                    $query = 'SELECT image_url,product_name,10,19,99,url,code FROM products_test 
-                              WHERE LOWER(product_name) LIKE \'%' . strtolower($title) . '%\'' .$sqlIngredients. '' .$sqlPackages. '' .$sqlMoC. ' ORDER BY ' . $order;
+                    $query = 'SELECT image1,name_product,in_stock,price,product_url,code FROM products 
+                              WHERE LOWER(name_product) LIKE \'%' . strtolower($title) . '%\'' .$sqlIngredients. '' .$sqlPackages. '' .$sqlMoC. ' AND pending=0 ORDER BY ' . $order;
                     $queryFinal = $query . ' LIMIT ' . (($page-1)*16) . ',16';
                     $result = mysqli_query($connection, $queryFinal);
                     if($result != false) {
                         while($row = mysqli_fetch_row($result)) {
+                            $superVal=0;
+                            if(count(explode(".",$row[3]))>1)
+                                $superVal = explode(".",$row[3])[1];
+                            else $superVal = 00;
                             echo '<li>
-                                    <img src="' . $row[0] . '" alt="images/missing.png">
-                                    <h1>' . ($row[1]!=""?$row[1]:$row[6]) . '</h1>
+                                    <img src="' . $row[0] . '" alt="Image of the product">
+                                    <h1>' . ($row[1]!=""?$row[1]:$row[5]) . '</h1>
                                     <h2>In stock (' . $row[2] . ')</h2>
-                                    <h3>$' . $row[3] . '<sup>' . $row[4] . '</sup></h3>
-                                    <form action="' . $row[5] . '"><input type="submit" value="Details"></form>
+                                    <h3>$' . ceil($row[3]) . '<sup>' . $superVal . '</sup></h3>
+                                    <form action="product.php"><input type="submit" value="Details"><input type="text" name="code" value="'.$row[5].'" style="display:none"></form>
                                 </li>';
                             $found = $found + 1;
                         }
@@ -318,18 +357,17 @@
         <div id="contact">
             <h5 class="head">Contact</h5>
             <p>0764 646 646</p>
-            <p>support@CanF.com</p>
-            <a class="footerA" href="contact.html">
+            <a class="footerA" href="contact.php">
                 <p>Write to us</p>
             </a>
         </div>
 
         <div id="account">
             <h5 class="head">Account</h5>
-            <a class="footerA" href="SignUp.html">
+            <a class="footerA" href="SignUp.php">
                 <p>Create Account</p>
             </a>
-            <a class="footerA" href="#">
+            <a class="footerA" href="profile.php">
                 <p>My Account</p>
             </a>
         </div>

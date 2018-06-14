@@ -1,6 +1,12 @@
 <?php
     session_start();
-    $connection = mysqli_connect("localhost", "root", "", "canf");
+    include "database.php";
+    include 'functions.php';
+
+    if(loggedin()) {
+        header("Location: loggedIndex.php");
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +20,22 @@
     <link href="css/signUpStyle.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:500|Permanent+Marker|Fugaz+One" rel="stylesheet">
     <link href="css/navStyle.css" rel="stylesheet">
+    <script>
+    function search(e){
+        if(e.keyCode === 13){
+            e.preventDefault();
+            var searchFor = document.getElementById('searchbar').value;
+            var format = /[!@#$%^&*()_+\\=\[\]{};':"\\|,.<>\/?]+/;
+            if(format.test(searchFor))
+                alert("You shouldn't search for something containing special characters!");
+            else {
+
+                var link="list.php?search=" + searchFor;
+                window.location.assign(link);
+            }
+        }
+    }
+    </script>
 </head>
 
 <body>
@@ -21,7 +43,7 @@
     <div id="top">
         <div id="topMenu">
             <div id="siteName">
-                <a href="index.html">
+                <a href="index.php">
                     <img id="logo" src="images/logo.png">
                     <p id="siteNameText">
                         CanF
@@ -29,18 +51,21 @@
                 </a>
             </div>
         </div>
-        <div id="search">
-            <input type="text" placeholder="&#x1F50E; Search for a product...">
-        </div>
+        <form id="search">
+            <?php
+                $holder = "&#x1F50E; Search for a product...";
+                echo '<input id="searchbar" type="text" placeholder="' . $holder . '" onkeypress="search(event)">';
+            ?>
+        </form>
         <div id="navMenu">
             <div id="menubutton"></div>
-            <a href="index.html">
+            <a href="index.php">
                 <button type="button">Home</button>
             </a>
-             <a class="active" href="list.html">
+             <a href="list.php">
                 <button type="button">Products</button>
             </a>
-            <a href="contact.html">
+            <a href="contact.php">
                 <button type="button">Contact</button>
             </a>
         </div>
@@ -60,8 +85,8 @@
                             <label for="name">Name:</label>
                         </div>
                         <div class="rightText">
-                            <input type="text" id="name" name="fname" placeholder="First name" required>
-                            <input type="text" id="name" name="sname" placeholder="Last name" required>
+                            <input type="text" id="name" name="fname" placeholder="First name" required pattern="[A-Z][A-Za-z' -]+">
+                            <input type="text" id="name" name="sname" placeholder="Last name" required pattern="[A-Z][A-Za-z' -]+">
                         </div>
                     </div>
 
@@ -117,12 +142,16 @@
                     </h2>
                 </div>
                 <div id="logBox">
-                    <form>
+                    <form action = "userLogIn.php" method = "POST">
                         <h3>Username:</h3>
-                        <input type="text" placeholder="Username">
+                        <input type="text" name="username" placeholder="Username" required>
                         <h3>Password:</h3>
-                        <input type="password" placeholder="Password">
+                        <input type="password" name="password" placeholder="Password" required>
+                        
                         <h3>Glad to have you back</h3>
+                        <!-- <p>Remember me</p> -->
+                        <label>Remember me</label>
+                        <input type="checkbox" name="rememberme"><br/><br/>
                         <input type="submit" value="Log In">
                     </form>
                 </div>
@@ -135,28 +164,17 @@
         <div id="contact">
             <h5 class="head">Contact</h5>
             <p>0764 646 646</p>
-            <p>support@CanF.com</p>
-            <a class="footerA" href="contact.html">
+            <a class="footerA" href="contact.php">
                 <p>Write to us</p>
             </a>
         </div>
 
-        <!-- <div id="help">
-            <h5 class="head">Help Center</h5>
-            <a class="footerA" href="#">
-                <p>FAQ</p>
-            </a>
-            <a class="footerA" href="#">
-                <p>Terms&Conditions</p>
-            </a>
-        </div> -->
-
         <div id="account">
             <h5 class="head">Account</h5>
-            <a class="footerA" href="SignUp.html">
+            <a class="footerA" href="SignUp.php">
                 <p>Create Account</p>
             </a>
-            <a class="footerA" href="#">
+            <a class="footerA" href="profile.php">
                 <p>My Account</p>
             </a>
         </div>

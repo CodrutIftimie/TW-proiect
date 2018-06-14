@@ -1,13 +1,10 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "website";
-$conn = mysqli_connect($servername, $username, $password, $database);
+session_start();
+include "database.php";
 $export = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n"; 
 $export="<products>";
 $sql = "SELECT * from products";
-$result = mysqli_query($conn, $sql);
+$result = mysqli_query($connection, $sql);
 while($row = mysqli_fetch_array($result))
 {   
     $export.="<product>";

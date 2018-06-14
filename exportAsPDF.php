@@ -3,7 +3,7 @@
 require("fpdf.php");
 include "database.php";
 
-$sql = "SELECT product_name, 10,99, 2 FROM products_test ORDER BY created_t DESC";
+$sql = "SELECT name_product, price, in_stock FROM products WHERE pending=0 ORDER BY created_t DESC";
 
 $pdf = new FPDF('P','mm','A4');
 $pdf->AddPage();
@@ -18,8 +18,8 @@ $products = 0;
 $result = mysqli_query($connection, $sql);
 while($row = mysqli_fetch_row($result)) {
     if($products < 10)
-        $pdf->Cell(190,14,"[".($products+1)."] Product: ".$row[0]. " | Price: $".$row[1].".".$row[2]." | In Stock: ". $row[3],1,1,'L');
-    else $pdf->Cell(190,14,"[".($products+1)."] Product: ".$row[0]. " | Price: $".$row[1].".".$row[2]." | In Stock: ". $row[3],0,1,'L');
+        $pdf->Cell(190,14,"[".($products+1)."] Product: ".$row[0]. " | Price: $".$row[1]." | In Stock: ". $row[2],1,1,'L');
+    else $pdf->Cell(190,14,"[".($products+1)."] Product: ".$row[0]. " | Price: $".$row[1]." | In Stock: ". $row[2],0,1,'L');
     $products++;
 }
 $pdf->Output();

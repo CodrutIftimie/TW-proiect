@@ -1,9 +1,6 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "website";
-$conn = mysqli_connect($servername, $username, $password, $database);
+session_start();
+include "database.php";
 
 $ingrediente = array();
 
@@ -20,12 +17,14 @@ if(isset($_POST["categories5"]))
 if(isset($_POST["categories6"]))
     $ingrediente[] = "fruits";
 
+
+
 $sql = 'INSERT INTO products (name_product,code,product_url,ingredients,packages,grams_100,instructions,transport,risks,manufacturing_places,valability,price,image1,image2,image3,country,in_stock)VALUES (\'' .$_POST["name_product"]. '\',' .$_POST["code"]. ',
-\'localhost/product.php?code='.$_POST["code"].'\',\'
+\'/product.php?code='.$_POST["code"].'\',\'
 ' .implode(";",$ingrediente).'\',\'
 '.$_POST["packages"].'\',\''.$_POST["grams_100"].'\',\''.$_POST["instructions"].'\',\''.$_POST["transport"].'\',\''.$_POST["risks"].'\',\'
 '.$_POST["manufacturing_places"].'\',\''.$_POST["valability"].'\','.$_POST["price"].',\''.$_POST["image1"].'\',\''.$_POST["image2"].'\',\''.$_POST["image3"].'\',\''.$_POST["country"].'\',\''.$_POST["in_stock"].'\')';
-echo $sql;
-$result = mysqli_query($conn, $sql);
-echo mysqli_error($conn);
+
+$result = mysqli_query($connection, $sql);
+header("Location: /index.php");
 ?>

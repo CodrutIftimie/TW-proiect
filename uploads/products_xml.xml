@@ -1,0 +1,115 @@
+<products>
+	<product>
+                <product_name>Mustar de tecuci</product_name> 
+                <code>123450</code>
+                <ingredients>tomatoes;vegetables;</ingredients> 
+                <packages>FRIGIDER</packages> 
+                <grams_100>10g sare,15g piper</grams_100> 
+		<instructions>None</instructions>
+                <transport>Curier</transport> 
+                <risks>None</risks> 
+                <manufacturing_places>Tecuci</manufacturing_places> 
+                <valability>29.10.2019</valability> 
+                <price>10.3</price> 
+                <image1>http://www.mustartecuci.ro/wp-content/uploads/2011/12/280iute-282x300.jpg</image1> 
+                <image2>http://www.mustartecuci.ro/wp-content/uploads/2011/12/110g1-282x300.jpg</image2> 
+                <image3>https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI3B6HM38fjJ08TRSZLLdDoGVtBXgVE0pUqJFqvIUQ6M57_fKs</image3> 
+                <country>Romania,Franta</country> 
+                <in_stock>24</in_stock> 
+        </product>
+	
+	<product>
+                <product_name>Smantana</product_name> 
+                <code>12351</code>
+                <ingredients>tomatoes;fish</ingredients> 
+                <packages>Cutie plastic</packages> 
+                <grams_100>100ml lapte 10g sare</grams_100> 
+		<instructions>Deschizi capacul mananci pui capacul si pui la frigider</instructions>
+                <transport>Vehicul firma</transport> 
+                <risks>Dureri intestinale</risks> 
+                <manufacturing_places>Braila</manufacturing_places> 
+                <valability>11.10.2018</valability> 
+                <price>45.13</price> 
+                <image1>https://www.pretistet.ro/wp-content/uploads/2014/07/Smantana-Albalact-12-900-gr-500x500.jpg</image1> 
+                <image2>https://www.pretistet.ro/wp-content/uploads/2014/07/smantana_muller_375gr-480x480.jpg</image2> 
+                <image3>https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYypvWKDfjJwICVPyd8QfQJESwYsNgwsZjvxO04Nq2XIUKVzFK</image3> 
+                <country>polonia,Romania</country> 
+                <in_stock>32</in_stock> 
+        </product>
+
+	<product>
+                <product_name>Cereale</product_name> 
+                <code>12352</code>
+                <ingredients>tomatoes;fish;vegetables;</ingredients> 
+                <packages>Punga</packages> 
+                <grams_100>90g scortisoara</grams_100> 
+		<instructions>Se pun in lapte</instructions>
+                <transport>Fara</transport> 
+                <risks>Intoxicare</risks> 
+                <manufacturing_places>Oradea</manufacturing_places> 
+                <valability>08.12.2020</valability> 
+                <price>5.3</price> 
+                <image1>https://www.nestle-cereals.com/ro/sites/g/files/qirczx421/f/styles/tablet_1024x576/public/product_gallery/pachet-cereale-mic-dejun-chocapic_0.png?itok=lhoIdCvp</image1> 
+                <image2>https://www.ketal.com.bo/17243-large_default/cereal-nestle-chocapic-250gr.jpg</image2> 
+                <image3>https://www.shopidoki.ro/img/produse/12229032N.jpg?t=1395765540</image3> 
+                <country>China,India</country> 
+                <in_stock>21</in_stock> 
+        </product>
+
+	<product>
+                <product_name>Peste congelat</product_name> 
+                <code>12353</code>
+                <ingredients>tomatoes;fish;vegetables;</ingredients> 
+                <packages>Punga </packages> 
+                <grams_100>20g sare,700g carne</grams_100> 
+		<instructions>Separati oasele si prajitii</instructions>
+                <transport>Gratuit oriunde in romania</transport> 
+                <risks>Intoxicare</risks> 
+                <manufacturing_places>Focsani</manufacturing_places> 
+                <valability>28.07.2019</valability> 
+                <price>12</price> 
+                <image1>https://roshop.uk/image/cache/Carne/macrou-congelat-negro-800x800.jpg</image1> 
+                <image2>http://www.clubafaceri.ro/files/clients/50/99434/67/pungi-peste-congelat-3081779_big.jpg</image2> 
+                <image3>http://www.negro2000.ro/images/products/file-de-crap.jpg</image3> 
+                <country>Germania,Romania</country> 
+                <in_stock>44</in_stock> 
+        </product>
+
+	<product>
+                <product_name>Paste</product_name> 
+                <code>12354</code>
+                <ingredients>fruits;fish;vegetables;</ingredients> 
+                <packages>Punga</packages> 
+                <grams_100>1,5kg paste</grams_100> 
+		<instructions>Fierbere</instructions>
+                <transport>Fara</transport> 
+                <risks>Ameteli</risks> 
+                <manufacturing_places>Bacau</manufacturing_places> 
+                <valability>30.01.2022</valability> 
+                <price>19</price> 
+                <image1>http://www.divainbucatarie.ro/wp-content/uploads/2014/03/pb-5.jpg</image1> 
+                <image2>http://www.boromir.ro/images/retete/zoom/7/ro/taietei-de-casa-1.jpg</image2> 
+                <image3>https://www.pretistet.ro/wp-content/uploads/2014/08/Fidea-Cuiburi-200g-Baneasa.jpg</image3> 
+                <country>Anglia</country> 
+                <in_stock>214</in_stock> 
+        </product>
+
+	<product>
+                <product_name>Smantana</product_name> 
+                <code>12355</code>
+                <ingredients>tomatoes;</ingredients> 
+                <packages>Cutie carton</packages> 
+                <grams_100>1L lichid</grams_100> 
+		<instructions>Incalzire si consumare</instructions>
+                <transport>Curier</transport> 
+                <risks>Bube rosii</risks> 
+                <manufacturing_places>Iasi</manufacturing_places> 
+                <valability>18.08.2018</valability> 
+                <price>9</price> 
+                <image1>http://www.cefacemimi.ro/wp-content/uploads/2012/07/lapte-dorna-uht.jpg</image1> 
+                <image2>https://www.alimentaraonline.com/gallery/large/20/lapte-3-5-la-dorna-1l-3.jpg</image2> 
+                <image3>http://www.admir.ro/1898-large_default/lapte-la-dorna-1l.jpg</image3> 
+                <country>Romania,Italia</country> 
+                <in_stock>90</in_stock> 
+        </product>
+</products>

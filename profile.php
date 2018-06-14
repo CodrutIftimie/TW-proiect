@@ -1,16 +1,17 @@
 <?php
-    if ( ! session_id() ) @ session_start();
+    @session_start();
     include "database.php";
+    include "functions.php";
 
     $visiting = 0;
-    if(!isset($_COOKIE["username"]))
-            header("Location: /SignUp.html");
+    if(!isset($_COOKIE["loggedUser"]))
+            header("Location: /SignUp.php");
     if(isset($_GET["username"])) {
         $sql = "SELECT count(user_id), user_fname, user_sname, user_email, user_phonenr, user_rank FROM users WHERE user_username LIKE BINARY '". $_GET["username"] . "';";
         $result = mysqli_query($connection, $sql);
         $row = mysqli_fetch_row($result);
         if($row[0] == 1) {
-            $userName = $_COOKIE["username"];
+            $userName = $_COOKIE["loggedUser"];
             $foreName = $row[1];
             $surName = $row[2];
             $email = $row[3];
@@ -21,10 +22,10 @@
         else header("Location: /userNotFound.php");
     }
     else {
-        $sql = "SELECT user_fname, user_sname, user_email, user_phonenr, user_rank FROM users WHERE user_username LIKE BINARY '". $_COOKIE["username"] . "';";
+        $sql = "SELECT user_fname, user_sname, user_email, user_phonenr, user_rank FROM users WHERE user_username LIKE BINARY '". $_COOKIE["loggedUser"] . "';";
         $result = mysqli_query($connection, $sql);
         $row = mysqli_fetch_row($result);
-        $userName = $_COOKIE["username"];
+        $userName = $_COOKIE["loggedUser"];
         $foreName = $row[0];
         $surName = $row[1];
         $email = $row[2];
@@ -46,31 +47,69 @@
     <link href="css/navStyle.css" rel="stylesheet">
     <link href="css/profileStyle.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:500|Permanent+Marker|Fugaz+One" rel="stylesheet">
+    <script>
+        function search(e){
+            if(e.keyCode === 13){
+                e.preventDefault();
+                var searchFor = document.getElementById('searchbar').value;
+                var format = /[!@#$%^&*()_+\\=\[\]{};':"\\|,.<>\/?]+/;
+                if(format.test(searchFor))
+                    alert("You shouldn't search for something containing special characters!");
+                else {
+
+                    var link="list.php?search=" + searchFor;
+                    window.location.assign(link);
+                }
+            }
+        }
+        </script>
 </head>
 
 <body>
     <div id="top">
         <div id="topMenu">
             <div id="siteName">
-                <a href="index.html">
+            <?php
+                if(loggedin())
+                    echo '<a href="loggedIndex.php">
                     <img id="logo" src="images/logo.png">
-                    <p id="siteNameText">
-                        CanF
-                    </p>
-                </a>
+                        <p id="siteNameText">
+                            CanF
+                        </p>
+                    </a>';
+                else
+                    echo '<a href="index.php">
+                        <img id="logo" src="images/logo.png">
+                            <p id="siteNameText">
+                                CanF
+                            </p>
+                        </a>';
+                
+            ?>
             </div>
         </div>
-        <div id="search">
-            <input type="text" placeholder="&#x1F50E; Search for a product...">
-        </div>
+        <form id="search">
+            <?php
+                $holder = "&#x1F50E; Search for a product...";
+                echo '<input id="searchbar" type="text" placeholder="' . $holder . '" onkeypress="search(event)">';
+            ?>
+        </form>
         <div id="navMenu">
-            <a href="index.html">
-                <button type="button">Home</button>
-            </a>
-            <a href="list.html">
+                <?php
+                if(loggedin())
+                    echo '<a href="loggedIndex.php">
+                    <button type="button">Home</button>
+                    </a>';
+                else
+                    echo '<a href="index.php">
+                    <button type="button">Home</button>
+                    </a>';
+                
+                ?>
+            <a href="list.php">
                 <button type="button">Products</button>
             </a>
-            <a href="contact.html">
+            <a href="contact.php">
                 <button type="button">Contact</button>
             </a>
         </div>
@@ -90,8 +129,8 @@
             </div>
             <?php
                 if($visiting == 0)
-                    echo '<form action="list.php">';
-                else echo '<form action="list.php" style="display:none">';
+                    echo '<form action="form.php">';
+                else echo '<form action="form.php" style="display:none">';
                 echo '<button>Add a product</button>
                       </form>';
             
@@ -102,20 +141,20 @@
                 echo "</form>";
 
                 if($visiting == 0)
-                    echo '<form action="exportAsPDF.php">';
-                else echo '<form action="exportAsPDF.php" style="display:none">';
+                    echo '<form action="exportAsPDF.php" target="_blank">';
+                else echo '<form action="exportAsPDF.php" target="_blank" style="display:none">';
                 echo '<button>Stock Information</button>
                       </form>';
 
                 if($visiting == 0)
-                    echo '<form action="exportAsCSV.php">';
-                else echo '<form action="exportAsCSV.php" style="display:none">';
+                    echo '<form action="export_csv.php">';
+                else echo '<form action="export_csv.php" style="display:none">';
                 echo '<button>Export CSV</button>
                     </form>';
 
                 if($visiting == 0)
-                    echo '<form action="exportAsXML.php">';
-                else echo '<form action="exportAsXML.php" style="display:none">';
+                    echo '<form action="export_xml.php">';
+                else echo '<form action="export_xml.php" style="display:none">';
                 echo '<button>Export XML</button>
                     </form>';
             
@@ -155,14 +194,14 @@
             <div id="added">
                 <?php
                     $productNo = 0;
-                    $sql = "SELECT product_name, url, image_url FROM products_test WHERE creator='brandprivat'";
+                    $sql = "SELECT name_product, product_url, image1 FROM products WHERE creator='".$userName."'";
                     $result = mysqli_query($connection, $sql);
                     while($row = mysqli_fetch_row($result)) {
                         if($productNo < 9)
                             echo '<a href="' . $row[1] . '" class="addedproduct">';
                         else echo '<a href="' . $row[1] . '" style="display:none" class="addedproduct">';
                              echo '<div class="product">
-                                    <img src="'. $row[2] . '" alt="images/missing.png">
+                                    <img src="'. $row[2] . '" alt="Image of the product">
                                     <p class="title">'. $row[0] . '</p>
                                 </div>
                               </a>';
@@ -176,7 +215,7 @@
             </div>
             <?php
 
-            if($visiting == 0)
+            if($visiting == 0 && $rank > 0)
                 echo '<div class="break" id="import">';
             else echo '<div class="break" id="import" style="display:none">';
                 echo '<p>Import CSV | XML</p>
@@ -231,18 +270,17 @@
         <div id="contact">
             <h5 class="head">Contact</h5>
             <p>0764 646 646</p>
-            <p>support@CanF.com</p>
-            <a class="footerA" href="contact.html">
+            <a class="footerA" href="contact.php">
                 <p>Write to us</p>
             </a>
         </div>
 
         <div id="account">
             <h5 class="head">Account</h5>
-            <a class="footerA" href="SignUp.html">
+            <a class="footerA" href="SignUp.php">
                 <p>Create Account</p>
             </a>
-            <a class="footerA" href="#">
+            <a class="footerA" href="profile.php">
                 <p>My Account</p>
             </a>
         </div>

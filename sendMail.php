@@ -1,6 +1,7 @@
 <?php
 
-    $connection = mysqli_connect("localhost", "root", "", "canf");
+session_start();
+include "database.php";
 
     if (!$connection) {
         die("Connection failed");
@@ -9,8 +10,8 @@
     if (isset($_POST['fname'])) {
         $fname = $_POST['fname'];
     } else die();
-    if (isset($_POST['sname'])) {
-        $sname = $_POST['sname'];
+    if (isset($_POST['userMail'])) {
+        $userMail = $_POST['userMail'];
     } else die();
     if (isset($_POST['email'])) {
         $email = $_POST['email'];
@@ -22,24 +23,17 @@
         $subject = $_POST['subject'];
     } else die();
 
-    $verifyEmail = "SELECT * FROM users WHERE user_email = '$email'";
-    $resultEmail = mysqli_query($connection,$verifyEmail);
-    $countEmail = mysqli_num_rows($resultEmail);
 
-    if ($countEmail > 0) {
-        $msg = $fname . ' ' . $sname . ' ' . '<br>' . $subject;
-        echo $msg;
+    if ($email == "adelin@gmail.com" || $email== "codrut@gmail.com" || $email == "leonard@gmail.com"){
+        $data = date("d/m/y");
+        $sql = "INSERT INTO emails (sender, receiver, message_sent, date_sent) 
+                VALUES ('$userMail', '$email', '$subject', '$data')";
+        $result = mysqli_query($connection, $sql);
+        header("Location: contact.php");
+    } else {
+        $error = "Incorrect e-mail. Choose on of the Staff's email. Press ok to try again.";
+        echo "<script type='text/javascript'>alert(\"$error\");</script>";
+        echo "<script>setTimeout(\"location.href = 'contact.php';\",1);</script>";
     }
 
-    // faci insert la mail intr-o baza de date din care scoti continut intr-o pagina la care au acces doar admini
-    // cand deschizi pagina te loghhezi si afiseaza mailurile sub forma:
-    // "Mail from _ _" si sa fie href ceva sa dai click pe el si sa deschida mailul
-    // ca sa afisezi faci un while fetch_assoc ceva
-        //saaaau faci o tabela cu 2 chestii sau 3, mail-ul, de la cine si pentru cine si afisezi mailurile pt ala conectat si sa aiba optiunea de response and shit
-
-
-    // $n = 10;
-    // for($j=$n;$j>0;$j--){
-    //     echo $j;
-    // }
 ?>

@@ -1,9 +1,6 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "website";
-$conn = mysqli_connect($servername, $username, $password, $database);
+session_start();
+include "database.php";
 ?>
 <html>
     <head>
@@ -11,12 +8,28 @@ $conn = mysqli_connect($servername, $username, $password, $database);
         <link rel="stylesheet" href="css/formStyle.css">
         <link href="css/navStyle.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+        <script>
+    function search(e){
+        if(e.keyCode === 13){
+            e.preventDefault();
+            var searchFor = document.getElementById('searchbar').value;
+            var format = /[!@#$%^&*()_+\\=\[\]{};':"\\|,.<>\/?]+/;
+            if(format.test(searchFor))
+                alert("You shouldn't search for something containing special characters!");
+            else {
+
+                var link="list.php?search=" + searchFor;
+                window.location.assign(link);
+            }
+        }
+    }
+    </script>
     </head>
     <body>
         <div id="top">
             <div id="topMenu">
                 <div id="siteName">
-                    <a href="index.html">
+                    <a href="loggedIndex.php">
                         <img id="logo" src="images/logo.png">
                         <p id="siteNameText">
                             CanF
@@ -24,18 +37,21 @@ $conn = mysqli_connect($servername, $username, $password, $database);
                     </a>
                 </div>
             </div>
-            <div id="search">
-                <input type="text" placeholder="&#x1F50E; Search for a product...">
-            </div>
+            <form id="search">
+            <?php
+                $holder = "&#x1F50E; Search for a product...";
+                echo '<input id="searchbar" type="text" placeholder="' . $holder . '" onkeypress="search(event)">';
+            ?>
+            </form>
             <div id="navMenu">
                 <div id="menubutton"></div>
-                <a href="index.html">
+                <a href="loggedIndex.php">
                     <button type="button">Home</button>
                 </a>
-                <a class="active" href="list.html">
+                <a href="list.php">
                     <button type="button">Products</button>
                 </a>
-                <a href="contact.html">
+                <a href="contact.php">
                     <button type="button">Contact</button>
                 </a>
             </div>
@@ -131,18 +147,17 @@ $conn = mysqli_connect($servername, $username, $password, $database);
                 <div id="contact">
                     <h5 class="head">Contact</h5>
                     <p>0764 646 646</p>
-                    <p>support@CanF.com</p>
-                    <a class="footerA" href="contact.html">
+                    <a class="footerA" href="contact.php">
                         <p>Write to us</p>
                     </a>
                 </div>
         
                 <div id="account">
                     <h5 class="head">Account</h5>
-                    <a class="footerA" href="SignUp.html">
+                    <a class="footerA" href="SignUp.php">
                         <p>Create Account</p>
                     </a>
-                    <a class="footerA" href="#">
+                    <a class="footerA" href="profile.php">
                         <p>My Account</p>
                     </a>
                 </div>

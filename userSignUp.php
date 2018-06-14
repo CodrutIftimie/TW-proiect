@@ -1,11 +1,7 @@
 <?php
     session_start();
 
-    $connection = mysqli_connect("localhost", "root", "", "canf");
-
-    if (!$connection) {
-        die("Connection failed");
-    }
+    include "database.php";
 
     if (isset($_POST['fname'])) {
         $fname = $_POST['fname'];
@@ -39,11 +35,11 @@
                         VALUES ('$fname', '$sname', '$username', '$password', '$email', '$numar')";
         $result = mysqli_query($connection, $sql);
 
-        header("Location: index.html");
+        header("Location: loggedIndex.php");
     }
     else if ($countUser > 0) {
         $message = "User already in use, press ok to try again.";
-        echo "<script type='text/javascript'>alert('$message');</script>";
+        echo "<script type='text/javascript'>alert('$message');window.close();</script>";
         echo "<script>setTimeout(\"location.href = 'SignUp.php';\",1);</script>";
     }
     else if ($countEmail > 0) {

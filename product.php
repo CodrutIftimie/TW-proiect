@@ -1,17 +1,13 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "website";
-$conn = mysqli_connect($servername, $username, $password, $database);
+session_start();
+include "database.php";
+include "functions.php";
 
 if(!isset($_GET["code"]))
     header("Location: notfound.php");
 else
  $code=$_GET["code"];
-
- setcookie("loggedUser","Leonard");
 ?>
 
 <html>
@@ -22,46 +18,92 @@ else
         <link href="https://fonts.googleapis.com/css?family=Libre+Franklin" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Hind+Siliguri" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Raleway:500|Permanent+Marker|Fugaz+One" rel="stylesheet">
+        <script>
+    function search(e){
+        if(e.keyCode === 13){
+            e.preventDefault();
+            var searchFor = document.getElementById('searchbar').value;
+            var format = /[!@#$%^&*()_+\\=\[\]{};':"\\|,.<>\/?]+/;
+            if(format.test(searchFor))
+                alert("You shouldn't search for something containing special characters!");
+            else {
+
+                var link="list.php?search=" + searchFor;
+                window.location.assign(link);
+            }
+        }
+    }
+    </script>
     </head>
 
     <body >
         <div id="top">
             <div id="topMenu">
                 <div id="siteName">
-                    <a href="index.html">
-                        <img id="logo" src="images/logo.png">
-                        <p id="siteNameText">
-                            CanF
-                        </p>
-                    </a>
+                    <?php
+                        if(loggedin()){
+                            echo '<a href="loggedIndex.php">
+                            <img id="logo" src="images/logo.png">
+                                <p id="siteNameText">
+                                    CanF
+                                </p>
+                            </a>';
+                        } else {
+                            echo '<a href="index.php">
+                                <img id="logo" src="images/logo.png">
+                                    <p id="siteNameText">
+                                        CanF
+                                    </p>
+                                </a>';
+                        }
+                    ?>
                 </div>
             </div>
-            <div id="search">
-                <input type="text" placeholder="Search for...">
-            </div>
+            <form id="search">
+            <?php
+                $holder = "&#x1F50E; Search for a product...";
+                echo '<input id="searchbar" type="text" placeholder="' . $holder . '" onkeypress="search(event)">';
+            ?>
+            </form>
             <div id="navMenu">
-                <a href="index.html">
-                    <button type="button">Home</button>
-                </a>
-                <a href="list.html">
+                <?php
+                    if(loggedin()){
+                        echo '<a href="loggedIndex.php">
+                            <button type="button">Home</button>
+                            </a>';
+                    } else {
+                        echo '<a href="index.php">
+                            <button type="button">Home</button>
+                            </a>';
+                    }
+                ?>
+                <a href="list.php">
                     <button type="button">Products List</button>
                 </a>
-                <a href="contact.html">
+                <a href="contact.php">
                     <button type="button">Contact</button>
                 </a>
             </div>
         </div>
         <div id="logSignButt">
-                <a href="SignUp.html">
-                    <button type="button">LogIn/SignUp</button>
-                </a>
+            <?php
+                if(loggedin()){
+                    echo '<a href="userLogOut.php">
+                        <button type="button">Log out</button>
+                        </a>';
+                } else {
+                    echo '<a href="SignUp.php">
+                        <button type="button">LogIn/SignUp</button>
+                        </a>';
+                }
+            ?>
             </div>
         <div class="mainInf">
             <div id="font">
                 <p class="fontTextNume">
                     <?php                     
                         $sql = "SELECT name_product FROM products where code=".$code.";";
-                        $result = mysqli_query($conn, $sql);
+                        $result = mysqli_query($connection, $sql);
                         while( $row =  mysqli_fetch_row($result)) {
                         echo $row[0];        
                     }    
@@ -72,7 +114,7 @@ else
             <div class="inline" id="imagine">
                  <?php       
                       $sql = "SELECT image1 FROM products where code=".$code.";";
-                      $result = mysqli_query($conn, $sql);
+                      $result = mysqli_query($connection, $sql);
                        while( $row =  mysqli_fetch_row($result)) 
                         echo '<img src='.$row[0].' height=100% width=100%>';
                   ?>
@@ -88,7 +130,7 @@ else
                         <li class="lista">
                         <?php  
                             $sql = "SELECT grams_100 FROM products where code=".$code.";";
-                            $result = mysqli_query($conn, $sql);
+                            $result = mysqli_query($connection, $sql);
                               while( $row =  mysqli_fetch_row($result)) 
                               if($row[0] != "")
                               echo "Quantity: ".$row[0];
@@ -98,7 +140,7 @@ else
                         <li class="lista"> 
                         <?php  
                             $sql = "SELECT Price FROM products where code=".$code.";";
-                            $result = mysqli_query($conn, $sql);
+                            $result = mysqli_query($connection, $sql);
                               while( $row =  mysqli_fetch_row($result)) 
                               if($row[0] != "")
                               echo "Price: ".$row[0];
@@ -108,7 +150,7 @@ else
                         <li class="lista"> 
                         <?php  
                             $sql = "SELECT in_stock FROM products where code=".$code.";";
-                            $result = mysqli_query($conn, $sql);
+                            $result = mysqli_query($connection, $sql);
                               while( $row =  mysqli_fetch_row($result)) 
                               if($row[0] != "")
                               echo "Nr. produse in stock: ".$row[0];
@@ -118,7 +160,7 @@ else
                         <li class="lista">
                         <?php  
                             $sql = "SELECT country FROM products where code=".$code.";";
-                            $result = mysqli_query($conn, $sql);
+                            $result = mysqli_query($connection, $sql);
                               while( $row =  mysqli_fetch_row($result)) 
                               if($row[0] != "")
                               echo "Countries where it's sold: ".$row[0];
@@ -133,7 +175,7 @@ else
                             <div>
                             <?php       
                                  $sql = "SELECT image2 FROM products where code=".$code.";";
-                                 $result = mysqli_query($conn, $sql);
+                                 $result = mysqli_query($connection, $sql);
                                      while( $row =  mysqli_fetch_row($result)) 
                                      if($row[0] != "")
                                          echo '<img src='.$row[0].' height=150px width=150px>';
@@ -144,7 +186,7 @@ else
                             <div>
                             <?php       
                                  $sql = "SELECT image2 FROM products where code=".$code.";";
-                                 $result = mysqli_query($conn, $sql);
+                                 $result = mysqli_query($connection, $sql);
                                      while( $row =  mysqli_fetch_row($result)) 
                                      if($row[0] != "")
                                          echo '<img src='.$row[0].' height=150px width=150px>';
@@ -164,7 +206,7 @@ else
                         <li class="lista1">
                             <?php                     
                                  $sql = "SELECT ingredients FROM products where code=".$code.";";
-                                 $result = mysqli_query($conn, $sql);
+                                 $result = mysqli_query($connection, $sql);
                                      while( $row =  mysqli_fetch_row($result)) 
                                      if($row[0] != "")
                                          echo "<b>Ingredients: </b>".$row[0];        
@@ -173,7 +215,7 @@ else
                             <li class="lista1">
                               <?php                     
                                  $sql = "SELECT code FROM products where code=".$code.";";
-                                 $result = mysqli_query($conn, $sql);
+                                 $result = mysqli_query($connection, $sql);
                                      while( $row =  mysqli_fetch_row($result)) 
                                      if($row[0] != "")
                                           echo "<b>Barcode: </b>".$row[0];                                
@@ -182,7 +224,7 @@ else
                         <li class="lista1">
                              <?php                     
                                  $sql = "SELECT manufacturing_places FROM products where code=".$code.";";
-                                 $result = mysqli_query($conn, $sql);
+                                 $result = mysqli_query($connection, $sql);
                                      while( $row =  mysqli_fetch_row($result)) 
                                      if($row[0] != "")
                                          echo "<b>Producers address: </b>".$row[0];                                
@@ -191,7 +233,7 @@ else
                         <li class="lista1">
                             <?php                     
                                  $sql = "SELECT categories FROM products where code=".$code.";";
-                                 $result = mysqli_query($conn, $sql);
+                                 $result = mysqli_query($connection, $sql);
                                      while( $row =  mysqli_fetch_row($result)) 
                                      if($row[0] != "")
                                          echo "<b>Categories: </b>".$row[0];                                                               
@@ -200,7 +242,7 @@ else
                         <li class="lista1"> 
                             <?php                     
                                  $sql = "SELECT instructions FROM products where code=".$code.";";
-                                 $result = mysqli_query($conn, $sql);
+                                 $result = mysqli_query($connection, $sql);
                                      while( $row =  mysqli_fetch_row($result)) 
                                      if($row[0] != "")
                                          echo "<b>Instructions: </b>".$row[0];                                  
@@ -209,7 +251,7 @@ else
                         <li class="lista1"> 
                             <?php                     
                                  $sql = "SELECT risks FROM products where code=".$code.";";
-                                 $result = mysqli_query($conn, $sql);
+                                 $result = mysqli_query($connection, $sql);
                                      while( $row =  mysqli_fetch_row($result)) 
                                      if($row[0] != "")
                                          echo "<b>Risks: </b>".$row[0];                                  
@@ -218,7 +260,7 @@ else
                         <li class="lista1"> 
                             <?php                     
                                  $sql = "SELECT valability FROM products where code=".$code.";";
-                                 $result = mysqli_query($conn, $sql);
+                                 $result = mysqli_query($connection, $sql);
                                      while( $row =  mysqli_fetch_row($result)) 
                                      if($row[0] != "")
                                          echo "<b>Valability: </b>".$row[0];                                  
@@ -227,7 +269,7 @@ else
                         <li class="lista1"> 
                             <?php                     
                                  $sql = "SELECT transport FROM products where code=".$code.";";
-                                 $result = mysqli_query($conn, $sql);
+                                 $result = mysqli_query($connection, $sql);
                                      while( $row =  mysqli_fetch_row($result)) 
                                      if($row[0] != "")
                                          echo "<b>Transport: </b>".$row[0];                                  
@@ -236,7 +278,7 @@ else
                         <li class="lista1"> 
                             <?php                     
                                  $sql = "SELECT packages FROM products where code=".$code.";";
-                                 $result = mysqli_query($conn, $sql);
+                                 $result = mysqli_query($connection, $sql);
                                      while( $row =  mysqli_fetch_row($result)) 
                                      if($row[0] != "")
                                          echo "<b>Packages: </b>".$row[0];                                  
@@ -252,7 +294,7 @@ else
                         <?php
                             $sql = "SELECT com FROM comments where id_produs=".$code.";";
                      
-                            $result = mysqli_query($conn, $sql);
+                            $result = mysqli_query($connection, $sql);
                           
                                 while( $row =  mysqli_fetch_row($result)) 
                             
@@ -275,18 +317,17 @@ else
                 <div id="contact">
                     <h5 class="head">Contact</h5>
                     <p>0764 646 646</p>
-                    <p>support@CanF.com</p>
-                    <a class="footerA" href="contact.html">
+                    <a class="footerA" href="contact.php">
                         <p>Write to us</p>
                     </a>
                 </div>
         
                 <div id="account">
                     <h5 class="head">Account</h5>
-                    <a class="footerA" href="SignUp.html">
+                    <a class="footerA" href="SignUp.php">
                         <p>Create Account</p>
                     </a>
-                    <a class="footerA" href="#">
+                    <a class="footerA" href="profile.php">
                         <p>My Account</p>
                     </a>
                 </div>

@@ -1,5 +1,16 @@
 <?php
-    $connection = mysqli_connect("localhost", "root", "", "canf");
+    session_start();
+    include "database.php";
+    include 'functions.php';
+
+    if(loggedin()) {
+        if (isset($_COOKIE['loggedUser'])){
+            if($_COOKIE['loggedUser'] == "AdelinPamint" || $_COOKIE['loggedUser'] == "CodrutIftimie" || $_COOKIE['loggedUser'] == "LeonardPester" ) header("Location:adminMails.php");
+        }
+        if (isset($_SESSION['loggedUser'])){
+            if($_SESSION['loggedUser'] == "AdelinPamint" || $_SESSION['loggedUser'] == "CodrutIftimie" || $_SESSION['loggedUser'] == "LeonardPester" ) header("Location:adminMails.php");
+        }
+    }
 ?>
 
 
@@ -14,6 +25,22 @@
     <link rel="stylesheet" href="css/contactStyle.css">
     <link href="css/navStyle.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+    function search(e){
+        if(e.keyCode === 13){
+            e.preventDefault();
+            var searchFor = document.getElementById('searchbar').value;
+            var format = /[!@#$%^&*()_+\\=\[\]{};':"\\|,.<>\/?]+/;
+            if(format.test(searchFor))
+                alert("You shouldn't search for something containing special characters!");
+            else {
+
+                var link="list.php?search=" + searchFor;
+                window.location.assign(link);
+            }
+        }
+    }
+    </script>
 </head>
 
 <body>
@@ -21,35 +48,77 @@
     <div id="top">
         <div id="topMenu">
             <div id="siteName">
-                <a href="index.html">
-                    <img id="logo" src="images/logo.png">
-                    <p id="siteNameText">
-                        CanF
-                    </p>
-                </a>
+                <?php
+                    if(loggedin()){
+                        echo '<a href="loggedIndex.php">
+                        <img id="logo" src="images/logo.png">
+                        <p id="siteNameText">
+                            CanF
+                        </p>
+                    </a>';
+                    } else {
+                        echo '<a href="index.php">
+                        <img id="logo" src="images/logo.png">
+                        <p id="siteNameText">
+                            CanF
+                        </p>
+                    </a>';
+                    }
+                ?>
             </div>
         </div>
-        <div id="search">
-            <input type="text" placeholder="&#x1F50E; Search for a product...">
-        </div>
-        <div id="navMenu">
-            <div id="menubutton"></div>
-            <a href="index.html">
-                <button type="button">Home</button>
-            </a>
-            <a class="active" href="list.html">
-                <button type="button">Products</button>
-            </a>
-            <a href="contact.html">
-                <button type="button">Contact</button>
-            </a>
-        </div>
+        <form id="search">
+            <?php
+                $holder = "&#x1F50E; Search for a product...";
+                echo '<input id="searchbar" type="text" placeholder="' . $holder . '" onkeypress="search(event)">';
+            ?>
+        </form>
+        <?php
+            if(loggedin()){
+                echo '<div id="navMenu">
+                <div id="menubutton"></div>
+                <a href="loggedIndex.php">
+                    <button type="button">Home</button>
+                </a>
+                <a href="list.php">
+                    <button type="button">Products</button>
+                </a>
+                <a class="active" href="contact.php">
+                    <button type="button">Contact</button>
+                </a>
+                <a href="profile.php">
+                    <button type="button">Profile</button>
+                </a>
+            </div>';
+            } else {
+                echo '<div id="navMenu">
+                <div id="menubutton"></div>
+                <a href="index.php">
+                    <button type="button">Home</button>
+                </a>
+                <a class="active" href="list.php">
+                    <button type="button">Products</button>
+                </a>
+                <a class="active" href="contact.php">
+                    <button type="button">Contact</button>
+                </a>
+            </div>';
+            }
+        ?>
     </div>
 
     <div id="logSignButt">
-        <a href="SignUp.html">
-            <button type="button">LogIn/SignUp</button>
-        </a>
+        <?php
+            if(loggedin()){
+                echo '<a href="userLogOut.php">
+                    <button type="button">Log out</button>
+                    </a>';
+            } else {
+                echo '<a href="SignUp.php">
+                    <button type="button">LogIn/SignUp</button>
+                    </a>';
+            }
+        ?>
     </div>
 
     <div id="both">
@@ -61,12 +130,12 @@
                 </div>
 
                 <div class="row">
-                    <input type="text" id="name" name="fname" placeholder="First name" required>
-                    <input type="text" id="name" name="sname" placeholder="Last name" required>
+                    <input type="text" id="name" name="fname" placeholder="Your name" required pattern="[A-Za-z' -]+">
+                    <input type="email" id="name" name="userMail" placeholder="Your e-mail" required>
                 </div>
 
                 <div class="row">
-                    <input type="email" id="mail" name="email" placeholder="E-mail" required>
+                    <input type="email" id="mail" name="email" placeholder="Staff's e-mail" required>
                 </div>
 
                 <div class="row">
@@ -74,7 +143,7 @@
                 </div>
 
                 <div class="row">
-                    <textarea type="subject" name="subject" placeholder="Your message goes here" required></textarea>
+                    <textarea maxlength="1000" type="subject" name="subject" placeholder="Your message goes here" required></textarea>
                 </div>
 
                 <div class="row">
@@ -120,28 +189,17 @@
         <div id="contact">
             <h5 class="head">Contact</h5>
             <p>0764 646 646</p>
-            <p>support@CanF.com</p>
-            <a class="footerA" href="contact.html">
+            <a class="footerA" href="contact.php">
                 <p>Write to us</p>
             </a>
         </div>
 
-        <!-- <div id="help">
-            <h5 class="head">Help Center</h5>
-            <a class="footerA" href="#">
-                <p>FAQ</p>
-            </a>
-            <a class="footerA" href="#">
-                <p>Terms&Conditions</p>
-            </a>
-        </div> -->
-
         <div id="account">
             <h5 class="head">Account</h5>
-            <a class="footerA" href="SignUp.html">
+            <a class="footerA" href="SignUp.php">
                 <p>Create Account</p>
             </a>
-            <a class="footerA" href="#">
+            <a class="footerA" href="profile.php">
                 <p>My Account</p>
             </a>
         </div>

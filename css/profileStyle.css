@@ -28,6 +28,20 @@ body {
     border: thin solid rgba(0, 0, 0, .5);
 }
 
+#navigationb {
+    display: block;
+}
+
+#navigationb #info {
+    width: 20%;
+    margin-left:auto;
+    margin-right:auto;
+    height: 5me;
+    background: rgba(100, 100, 100, 0.5);
+    text-align: center;
+    border: thin solid rgba(0, 0, 0, .5);
+}
+
 #user {
     margin: .1em;
     padding: .1em;
@@ -66,11 +80,22 @@ body {
     text-align: center;
     padding-left: .1em;
 }
+#contentb {
+    display: block;
+    min-height: 1em;
+    border-left: .1em solid rgba(0,0,0,0);
+    text-align: center;
+    padding-left: .1em;
+}
 
 #added {
     position: relative;
     width: 100%;
     min-height: 50vh;
+}
+
+.addedproduct {
+    text-decoration: none;
 }
 
 #added a:link {
@@ -94,8 +119,8 @@ body {
     vertical-align: top;
     position: relative;
     margin: .1em auto;
-    width: 40%;
-    min-height: 8em;
+    width: 30%;
+    min-height: 6em;
     border: 2px solid black;
     border-top: none;
     border-bottom: none;
@@ -111,6 +136,7 @@ body {
 .product img {
     position: absolute;
     left: .5em;
+    top: .5em;
     margin: .25em .1em;
     display: inline-block;
     height: 4.5em;
@@ -119,10 +145,13 @@ body {
 }
 
 .product .title {
-    font-size: 2em;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    font-size: 1.6em;
     margin: 0em;
     padding: 0em;
-    margin-left:3em;
+    margin-left:3.4em;
 }
 
 .product .description {
@@ -139,7 +168,7 @@ body {
     vertical-align: center;
 }
 
-.profileDiv p, .profileDiv input {
+.profileDiv label, .profileDiv input {
     position: relative;
     display: inline-block;
     vertical-align: center;
@@ -162,12 +191,16 @@ body {
     margin: 0%;
 }
 
+#password input {
+    margin-bottom:3em;
+}
+
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
 -webkit-appearance: none; 
 margin: 0; 
 }
-#save button{
+#save{
     color: white;
     background: #2B2B2B;
     width:25%;
@@ -177,11 +210,16 @@ margin: 0;
 }
 
 #pageSelect {
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
     padding-top: .5em;
     padding-bottom: .5em;
+    text-align: center;
 }
 
-#pageSelect a {
+#pageSelect input {
+    display:inline-block;
     margin:0em .2em;
     padding:.1em .4em .2em .4em;
     border-style: solid;
@@ -190,10 +228,6 @@ margin: 0;
     font-size: 1.2em;
     border-radius: .2em;
     color: black;
-}
-
-#pageSelect a:link {
-    text-decoration: none;
 }
 
 @media(max-width:920px) {

@@ -6,6 +6,6 @@
 
     setcookie("loggedUser", "", time()-7200);
 
-    header("Location: SignUp.php");
+    header("Location: index.php");
 
 ?>

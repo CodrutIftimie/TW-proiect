@@ -2,9 +2,17 @@
 @session_start();
 include "database.php";
 
-$url = isset($_POST["link"])?$_POST["link"]:"";
+$url = isset($_POST["code"])?$_POST["code"]:"";
 if(isset($_POST["view"]))
-    header("Location: ".$url);
+    header("Location: product.php?code=".$url);
+if(isset($_POST["approve"])) {
+    $sql = "UPDATE products SET pending=0, creator='".$_COOKIE["loggedUser"]."' WHERE code=".$url;
+    mysqli_query($connection,$sql);
+}
+if(isset($_POST["deny"])) {
+    $sql = "DELETE FROM products WHERE code=".$url;
+    mysqli_query($connection,$sql);
+}
 ?>
 
 <html>
@@ -15,12 +23,28 @@ if(isset($_POST["view"]))
         <link href="css/navStyle.css" rel="stylesheet">
         <link href="css/pendingStyle.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Raleway:500|Permanent+Marker|Fugaz+One" rel="stylesheet">
+        <script>
+        function search(e){
+            if(e.keyCode === 13){
+                e.preventDefault();
+                var searchFor = document.getElementById('searchbar').value;
+                var format = /[!@#$%^&*()_+\\=\[\]{};':"\\|,.<>\/?]+/;
+                if(format.test(searchFor))
+                    alert("You shouldn't search for something containing special characters!");
+                else {
+
+                    var link="list.php?search=" + searchFor;
+                    window.location.assign(link);
+                }
+            }
+        }
+        </script>
     </head>
     <body>
         <div id="top">
             <div id="topMenu">
                 <div id="siteName">
-                    <a href="index.html">
+                    <a href="loggedIndex.php">
                         <img id="logo" src="images/logo.png">
                         <p id="siteNameText">
                             CanF
@@ -28,17 +52,20 @@ if(isset($_POST["view"]))
                     </a>
                 </div>
             </div>
-            <div id="search">
-                <input type="text" placeholder="&#x1F50E; Search for a product...">
-            </div>
+            <form id="search">
+            <?php
+                $holder = "&#x1F50E; Search for a product...";
+                echo '<input id="searchbar" type="text" placeholder="' . $holder . '" onkeypress="search(event)">';
+            ?>
+            </form>
             <div id="navMenu">
-                <a href="index.html">
+                <a href="index.php">
                     <button type="button">Home</button>
                 </a>
-                <a href="list.html">
+                <a href="list.php">
                     <button type="button">Products</button>
                 </a>
-                <a href="contact.html">
+                <a href="contact.php">
                     <button type="button">Contact</button>
                 </a>
             </div>
@@ -47,17 +74,21 @@ if(isset($_POST["view"]))
             <ul>
             <?php
                 $found = 0;
-                $query = 'SELECT image_url,product_name,10,19,99,url,code FROM products_test';
+                $query = 'SELECT image1,name_product,in_stock,price,product_url,code FROM products WHERE pending=1';
                 $result = mysqli_query($connection, $query);
                 if($result != false) {
                     while($row = mysqli_fetch_row($result)) {
+                        $superVal=0;
+                            if(count(explode(".",$row[3]))>1)
+                                $superVal = explode(".",$row[3])[1];
+                            else $superVal = 00;
                         echo '<li>
-                                <img src="' . $row[0] . '" alt="images/missing.png">
-                                <h1>' . ($row[1]!=""?$row[1]:$row[6]) . '</h1>
+                                <img src="' . $row[0] . '" alt="Image of the product">
+                                <h1>' . ($row[1]!=""?$row[1]:$row[5]) . '</h1>
                                 <h2>In stock (' . $row[2] . ')</h2>
-                                <h3>$' . $row[3] . '<sup>' . $row[4] . '</sup></h3>
+                                <h3>$' . ceil($row[3]) . '<sup>' . $superVal . '</sup></h3>
                                 <form action="/pending.php" method="post">
-                                    <input name="link" type="text" value="'.$row[5]. '" style="display:none">
+                                    <input name="code" type="text" value="'.$row[5]. '" style="display:none">
                                     <input id="apv" name="approve"type="submit" value="&#10003;">
                                     <input id="view" name="view" type="submit" value="View">
                                     <input id="dny" name="deny" type="submit" value="&#x2717;">
@@ -67,9 +98,29 @@ if(isset($_POST["view"]))
                     }
                 }
                 if($found == 0)
-                    echo "<p align=\"center\">There is no pending item!</p>";
+                    echo "<p align=\"center\">There are no pending items!</p>";
             ?>
         </ul>
+        </div>
+        <div id="footer">
+
+            <div id="contact">
+                <h5 class="head">Contact</h5>
+                <p>0764 646 646</p>
+                <a class="footerA" href="contact.php">
+                    <p>Write to us</p>
+                </a>
+            </div>
+
+            <div id="account">
+                <h5 class="head">Account</h5>
+                <a class="footerA" href="SignUp.php">
+                    <p>Create Account</p>
+                </a>
+                <a class="footerA" href="profile.php">
+                    <p>My Account</p>
+                </a>
+            </div>
         </div>
     </body>
 </html>
